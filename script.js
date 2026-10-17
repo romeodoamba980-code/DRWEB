@@ -6,6 +6,11 @@
    - description : (facultatif) une phrase affichée sous le titre dans la visionneuse */
 const PROJECTS = [
   {
+    title: "Projet personnel",
+    category: "Branding",
+    image: "https://i.ibb.co/8Ldt2wKP/Whats-App-Image-2025-10-29-at-12-35-48-30d4f2db.jpg"
+  },
+  {
     title: "Brochure EcoVigi Consulting",
     category: "Brochures",
     description: "Brochure de 7 pages pour Nana Abdoul Aziz, ingénieur QHSE : engagements, méthodologie, domaines d'intervention et offres.",
@@ -19,11 +24,6 @@ const PROJECTS = [
       "images/realisations/nana-aziz-brochure/page-6.jpg",
       "images/realisations/nana-aziz-brochure/page-7.jpg"
     ]
-  },
-  {
-    title: "Projet personnel",
-    category: "Branding",
-    image: "https://i.ibb.co/8Ldt2wKP/Whats-App-Image-2025-10-29-at-12-35-48-30d4f2db.jpg"
   },
   {
     title: "Affiche Orbite Services",
@@ -45,11 +45,6 @@ const PROJECTS = [
     title: "Campagne email",
     category: "Email",
     image: "https://i.ibb.co/fVmd60wG/EM.jpg"
-  },
-  {
-    title: "Site web",
-    category: "Web",
-    image: "https://i.ibb.co/P8bhRnR/rr-1p.jpg"
   }
 ];
 
