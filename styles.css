@@ -1666,3 +1666,79 @@ h3 {
     animation: none;
   }
 }
+
+/* Badge tournant « Créativité • Impact • Design » (option A) */
+.hero-stamp {
+  top: 22px;
+  left: -26px;
+  display: grid;
+  width: 108px;
+  height: 108px;
+  place-items: center;
+  border: 0;
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(16, 27, 45, .28);
+  transform: none;
+}
+
+.hero-stamp .stamp-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: stamp-spin 18s linear infinite;
+}
+
+.hero-stamp text {
+  fill: #fff;
+  font-family: Manrope, sans-serif;
+  font-size: 10.4px;
+  font-weight: 800;
+  letter-spacing: 2.6px;
+}
+
+.hero-stamp .stamp-core {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero-stamp .stamp-core .star-icon {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+@keyframes stamp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body.dark-mode .hero-stamp {
+  background: #0b1320;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+@media (max-width: 860px) {
+  .hero-stamp {
+    left: -18px;
+    width: 92px;
+    height: 92px;
+  }
+
+  .hero-stamp .stamp-core {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stamp .stamp-ring {
+    animation: none;
+  }
+}
