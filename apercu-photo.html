@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Aperçu — contours de photo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: var(--paper); }
+    .wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 80px; }
+    .intro h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); letter-spacing: -.04em; margin: 8px 0 6px; }
+    .intro p { color: var(--muted); margin: 0 0 36px; }
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .option { padding: 34px 26px 26px; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); }
+    .option h2 { font-size: 1.15rem; margin: 26px 0 4px; letter-spacing: -.02em; }
+    .option p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .tag { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: .85rem; }
+    .stage { display: grid; place-items: center; min-height: 300px; }
+    .stage img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* A — Anneau dégradé */
+    .a { position: relative; width: 240px; aspect-ratio: 1; padding: 7px; border-radius: 50%;
+      background: conic-gradient(from 200deg, var(--accent), #57dede, #2b4ddb, var(--navy), var(--accent));
+      box-shadow: 0 30px 70px rgba(6, 166, 181, .28); }
+    .a > div { width: 100%; height: 100%; padding: 6px; border-radius: 50%; background: var(--surface); }
+    .a img { border-radius: 50%; }
+
+    /* B — Arche décalée */
+    .b { position: relative; width: 210px; height: 270px; }
+    .b::before { content: ""; position: absolute; inset: 0; transform: translate(16px, 16px);
+      border: 2px solid var(--accent); border-radius: 110px 110px 18px 18px; }
+    .b > div { position: relative; width: 100%; height: 100%; overflow: hidden;
+      border-radius: 110px 110px 18px 18px; background: var(--line); box-shadow: 0 28px 60px rgba(16, 27, 45, .2); }
+
+    /* C — Orbite animée */
+    .c { position: relative; width: 250px; aspect-ratio: 1; display: grid; place-items: center; }
+    .c > div { width: 200px; aspect-ratio: 1; overflow: hidden; border-radius: 50%; box-shadow: 0 26px 60px rgba(16, 27, 45, .22); }
+    .c .orbit { position: absolute; inset: 0; border: 1.5px dashed rgba(6, 166, 181, .55); border-radius: 50%;
+      animation: spin 16s linear infinite; }
+    .c .orbit::after { content: ""; position: absolute; top: 50%; left: -7px; width: 14px; height: 14px; margin-top: -7px;
+      border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(6, 166, 181, .18); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* D — Forme organique */
+    .d { width: 240px; aspect-ratio: 1; padding: 8px; background: linear-gradient(140deg, var(--accent), var(--navy));
+      border-radius: 58% 42% 52% 48% / 48% 56% 44% 52%; animation: morph 9s ease-in-out infinite;
+      box-shadow: 0 30px 70px rgba(16, 27, 45, .25); }
+    .d > div { width: 100%; height: 100%; overflow: hidden; border-radius: inherit; }
+    @keyframes morph {
+      50% { border-radius: 44% 56% 40% 60% / 58% 44% 56% 42%; }
+    }
+
+    @media (max-width: 700px) { .options { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .c .orbit, .d { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="intro">
+      <span class="eyebrow">Aperçu temporaire</span>
+      <h1>4 contours pour ta photo</h1>
+      <p>Choisis A, B, C ou D et dis-le-moi : je l'applique sur ton site. Cette page sera supprimée ensuite.</p>
+    </div>
+    <div class="options">
+      <section class="option">
+        <span class="tag">A</span>
+        <div class="stage"><div class="a"><div><img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Option A"></div></div></div>
+        <h2>Anneau dégradé</h2>
+        <p>Un cercle net entouré d'un anneau bleu-vert → bleu nuit, aux couleurs du site. Classique, pro, très lisible.</p>
+      </section>
+      <section class="option">
+        <span class="tag">B</span>
+        <div class="stage"><div class="b"><div><img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Option B"></div></div></div>
+        <h2>Arche décalée</h2>
+        <p>Une forme d'arche avec un contour fin décalé derrière. Style «&nbsp;magazine&nbsp;», plus créatif et graphique.</p>
+      </section>
+      <section class="option">
+        <span class="tag">C</span>
+        <div class="stage"><div class="c"><span class="orbit" aria-hidden="true"></span><div><img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Option C"></div></div></div>
+        <h2>Orbite animée</h2>
+        <p>Un cercle avec une orbite en pointillés et un point qui tourne lentement. Rappelle ton travail de motion design.</p>
+      </section>
+      <section class="option">
+        <span class="tag">D</span>
+        <div class="stage"><div class="d"><div><img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Option D"></div></div></div>
+        <h2>Forme organique</h2>
+        <p>Une forme ronde irrégulière qui ondule doucement, avec un contour dégradé. Moderne et vivant.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
