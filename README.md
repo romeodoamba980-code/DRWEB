@@ -2,7 +2,9 @@
 
 Graphiste, designer web et monteur vidéo à Ouagadougou.
 
+Site en ligne : https://romeodoamba980-code.github.io/DRWEB/
+
 ## Fichiers
-- `index.html` : page d'accueil
-- `projet.html` : page qui s'ouvre quand on clique sur une réalisation
-- `projets.js` : liste des réalisations (le seul fichier à modifier pour en ajouter)
+- `index.html` : structure et textes du site
+- `styles.css` : design, galerie et animations
+- `script.js` : menu, thème, compteurs, galerie, visionneuse et formulaire WhatsApp (la liste des réalisations est en haut, dans `PROJECTS`)

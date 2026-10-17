@@ -1,1033 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <meta name="description" content="Portfolio de Delarose Doamba à Ouagadougou : graphisme, identité visuelle, sites web, vidéo et marketing digital.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Delarose Doamba — Graphiste & Designer Web">
+  <meta property="og:description" content="Affiches, identité visuelle, sites web, vidéo et marketing digital.">
+  <meta property="og:image" content="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg">
   <title>Delarose Doamba — Graphiste, Designer Web & Monteur vidéo</title>
-  <meta name="description" content="Portfolio de Delarose Doamba à Ouagadougou : affiches, identité visuelle, sites web, montage vidéo et marketing digital." />
-
-  <!-- Aperçu quand le lien est partagé sur WhatsApp / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Delarose Doamba — Graphiste & Designer Web" />
-  <meta property="og:description" content="Affiches, identité visuelle, sites web, vidéo et marketing digital." />
-  <meta property="og:image" content="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" />
-  <meta name="theme-color" content="#00a5bb" />
-
-  <!-- Police -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Icônes (lien CDN fonctionnel) -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <!-- Tout le style est ici : tu peux supprimer l'ancien fichier styles-portfolio.css -->
-  <style>
-    /* ================= THÈME (couleurs) ================= */
-    :root {
-      --accent: #00a5bb;
-      --accent-2: #00d4ee;
-      --bg: #f5f6fa;
-      --bg-alt: #ffffff;
-      --surface: #ffffff;
-      --text: #14161a;
-      --text-soft: #555b66;
-      --border: #e3e6ec;
-      --header: rgba(255, 255, 255, 0.85);
-      --shadow: 0 10px 30px rgba(20, 22, 26, 0.08);
-      --radius: 16px;
-    }
-
-    body.dark-mode {
-      --bg: #0b0d10;
-      --bg-alt: #111418;
-      --surface: #171b21;
-      --text: #f1f3f6;
-      --text-soft: #a7afbb;
-      --border: #262c35;
-      --header: rgba(11, 13, 16, 0.85);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    /* ================= BASE ================= */
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .container {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-alt {
-      background: var(--bg-alt);
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 620px;
-      margin: 0 auto 3rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-head p {
-      color: var(--text-soft);
-    }
-
-    /* ================= BOUTONS ================= */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.6rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      background: var(--accent);
-      color: #fff;
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 165, 187, 0.3);
-    }
-
-    .btn.ghost {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .btn.ghost:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn.whatsapp {
-      background: #25d366;
-      border-color: #25d366;
-    }
-
-    /* ================= EN-TÊTE ================= */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--header);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      height: 70px;
-    }
-
-    .brand {
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: var(--text);
-      letter-spacing: 0.5px;
-      animation: brandPop 0.7s cubic-bezier(.2, .9, .2, 1) both;
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    @keyframes brandPop {
-      from {
-        transform: scale(0.6);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .site-nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.75rem;
-    }
-
-    .site-nav a {
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-    }
-
-    .site-nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.25s;
-    }
-
-    .site-nav a:hover::after,
-    .site-nav a.active::after {
-      width: 100%;
-    }
-
-    /* Interrupteur thème */
-    .theme-toggle {
-      width: 56px;
-      height: 30px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      position: relative;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .theme-toggle .orbit {
-      position: absolute;
-      top: 50%;
-      left: 3px;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      transform: translateY(-50%);
-      transition: transform 0.3s cubic-bezier(.2, .9, .2, 1), background 0.3s;
-    }
-
-    .theme-toggle .fa-sun {
-      display: none;
-    }
-
-    .theme-toggle.active .orbit {
-      transform: translateY(-50%) translateX(26px);
-      background: #ffc107;
-      color: #111;
-    }
-
-    .theme-toggle.active .fa-moon {
-      display: none;
-    }
-
-    .theme-toggle.active .fa-sun {
-      display: inline;
-    }
-
-    /* Menu burger */
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    .nav-toggle span {
-      width: 26px;
-      height: 3px;
-      border-radius: 3px;
-      background: var(--text);
-      transition: 0.3s;
-    }
-
-    .nav-toggle.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* ================= HERO ================= */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 5rem 0 4rem;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      top: -180px;
-      right: -160px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 212, 238, 0.25), transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      line-height: 1.1;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text h1 span {
-      color: var(--accent);
-    }
-
-    .hero-text .lead {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      margin-bottom: 1.75rem;
-      max-width: 540px;
-    }
-
-    .ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tools li {
-      list-style: none;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-soft);
-    }
-
-    .hero-photo {
-      position: relative;
-      justify-self: center;
-    }
-
-    .hero-photo img {
-      width: min(340px, 75vw);
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid var(--surface);
-      box-shadow: 0 0 0 3px var(--accent), var(--shadow);
-    }
-
-    .badge-available {
-      position: absolute;
-      bottom: 8%;
-      left: -6%;
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .badge-available::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #25d366;
-      box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.2);
-    }
-
-    /* ================= SERVICES ================= */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.25rem;
-      list-style: none;
-    }
-
-    .service {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem 1.5rem;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    }
-
-    .service:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-      border-color: var(--accent);
-    }
-
-    .service-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 1.4rem;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      margin-bottom: 1.1rem;
-    }
-
-    .service h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .service p {
-      color: var(--text-soft);
-      font-size: 0.93rem;
-    }
-
-    /* ================= À PROPOS + STATS ================= */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      color: var(--text-soft);
-      margin-bottom: 1rem;
-    }
-
-    .about-text h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .stat:first-child {
-      grid-column: span 2;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      border: none;
-    }
-
-    .stat-number {
-      font-size: 2.4rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.35rem;
-    }
-
-    .stat p {
-      font-size: 0.9rem;
-      opacity: 0.85;
-    }
-
-    /* ================= PORTFOLIO ================= */
-    .portfolio-filter {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2.25rem;
-    }
-
-    .filter-btn {
-      padding: 0.55rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-soft);
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .filter-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .card {
-      display: block;
-      text-decoration: none;
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      cursor: pointer;
-      text-align: left;
-      padding: 0;
-      color: inherit;
-      font: inherit;
-      animation: fadeIn 0.4s ease both;
-    }
-
-    .card.hidden {
-      display: none;
-    }
-
-    .card-img {
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--border);
-    }
-
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .card:hover .card-img img {
-      transform: scale(1.06);
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(0, 0, 0, 0.65);
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.65rem;
-      border-radius: 999px;
-    }
-
-    .card-meta {
-      padding: 1rem 1.1rem;
-    }
-
-    .card-meta strong {
-      display: block;
-      font-size: 1rem;
-    }
-
-    .card-meta span {
-      color: var(--text-soft);
-      font-size: 0.85rem;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* ================= CTA ================= */
-    .cta-box {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      border-radius: 24px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-    }
-
-    .cta-box h2 {
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-
-    .cta-box p {
-      opacity: 0.9;
-      margin-bottom: 1.75rem;
-    }
-
-    .cta-box .btn {
-      background: #fff;
-      color: var(--accent);
-      border-color: #fff;
-    }
-
-    /* ================= AVIS ================= */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .testimonial {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: "\201C";
-      position: absolute;
-      top: 0.4rem;
-      right: 1.2rem;
-      font-size: 4.5rem;
-      line-height: 1;
-      color: var(--accent);
-      opacity: 0.2;
-      font-family: Georgia, serif;
-    }
-
-    .stars {
-      color: #ffb400;
-      margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    .testimonial-text {
-      color: var(--text-soft);
-      font-style: italic;
-      margin-bottom: 1.25rem;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      font-weight: 700;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-
-    .testimonial-author strong {
-      display: block;
-      line-height: 1.2;
-    }
-
-    .testimonial-author span {
-      font-size: 0.85rem;
-      color: var(--text-soft);
-    }
-
-    .review-cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    /* ================= CONTACT ================= */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .contact-form,
-    .contact-info {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-    }
-
-    .form-row {
-      margin-bottom: 1rem;
-    }
-
-    .form-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      font: inherit;
-      font-size: 0.95rem;
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0, 165, 187, 0.15);
-    }
-
-    .form-note {
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      margin-top: 0.75rem;
-    }
-
-    .contact-info h3 {
-      margin-bottom: 1.25rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      display: grid;
-      gap: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-list a {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: var(--text);
-      font-weight: 500;
-      word-break: break-word;
-    }
-
-    .contact-list i {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: var(--bg);
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .contact-list a:hover {
-      color: var(--accent);
-    }
-
-    .response-time {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    /* ================= PIED DE PAGE ================= */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--text-soft);
-      font-size: 0.9rem;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.2rem;
-    }
-
-    .socials a {
-      color: var(--text-soft);
-    }
-
-    .socials a:hover {
-      color: var(--accent);
-    }
-
-    /* Bouton WhatsApp flottant */
-    .wa-float {
-      position: fixed;
-      right: 1.1rem;
-      bottom: 1.1rem;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #25d366;
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 1.7rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      z-index: 90;
-      transition: transform 0.2s;
-    }
-
-    .wa-float:hover {
-      transform: scale(1.08);
-      color: #fff;
-    }
-
-    /* ================= ANIMATIONS AU SCROLL ================= */
-    /* Le contenu reste visible si le JavaScript ne se charge pas */
-    .js [data-animate] {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .js [data-animate].visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .js [data-animate] {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* ================= MOBILE ================= */
-    @media (max-width: 860px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .site-nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--bg-alt);
-        border-bottom: 1px solid var(--border);
-        display: none;
-        padding: 1.5rem 0;
-      }
-
-      .site-nav.open {
-        display: block;
-      }
-
-      .site-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.25rem;
-      }
-
-      .hero {
-        padding: 3rem 0;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-text {
-        text-align: center;
-        order: 2;
-      }
-
-      .hero-text .lead {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .ctas,
-      .tools {
-        justify-content: center;
-      }
-
-      .hero-photo {
-        order: 1;
-      }
-
-      .hero-photo img {
-        width: min(240px, 65vw);
-      }
-
-      .section {
-        padding: 3.5rem 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .form-2col {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-form,
-      .contact-info {
-        padding: 1.4rem;
-      }
-
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-      }
-
-      .card-meta {
-        padding: 0.7rem;
-      }
-
-      .card-meta strong {
-        font-size: 0.9rem;
-      }
-
-      .card-meta span {
-        font-size: 0.78rem;
-      }
-    }
-  </style>
-
-  <script>
-    // Active les animations seulement si JS fonctionne + applique le thème avant l'affichage
-    document.documentElement.classList.add("js");
-  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top">Delarose<span>.</span></a>
-
+      <a class="brand" href="#top" aria-label="Delarose, accueil">Delarose<span>.</span></a>
       <nav class="site-nav" id="main-nav" aria-label="Navigation principale">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#avis">Avis</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#apropos">À propos</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
       </nav>
-
       <div class="header-actions">
         <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activer le mode sombre" aria-pressed="false">
-          <span class="orbit" aria-hidden="true"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></span>
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
         </button>
         <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
           <span></span><span></span><span></span>
@@ -1037,421 +40,165 @@
   </header>
 
   <main id="top">
-    <!-- ================= HERO ================= -->
-    <section class="hero">
+    <section class="hero section-wrap">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
       <div class="container hero-grid">
-        <div class="hero-text">
-          <span class="eyebrow">Graphiste & Designer Web — Ouagadougou</span>
-          <h1>Je donne vie à vos idées avec <span>des visuels qui marquent.</span></h1>
-          <p class="lead">
-            Affiches, identité visuelle, sites web, montage vidéo et marketing digital :
-            des créations modernes pour faire grandir votre marque.
-          </p>
-          <div class="ctas">
-            <a href="#portfolio" class="btn"><i class="fas fa-eye"></i> Voir mes créations</a>
-            <a href="#contact" class="btn ghost">Me contacter</a>
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="status-dot"></span> Graphiste & designer web · Ouagadougou</span>
+          <h1>Je transforme vos idées en <span>images qui marquent.</span></h1>
+          <p class="hero-lead">Identité visuelle, affiches, sites web, vidéo et marketing digital : des créations pensées pour faire grandir votre marque.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#portfolio">Découvrir mes créations <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="#contact">Parlons de votre projet</a>
           </div>
-          <ul class="tools" aria-label="Outils maîtrisés">
-            <li>Photoshop</li>
-            <li>Illustrator</li>
-            <li>Figma</li>
-            <li>After Effects</li>
-            <li>Premiere Pro</li>
-            <li>VS Code</li>
-          </ul>
+          <div class="tool-list" aria-label="Outils maîtrisés">
+            <span>Photoshop</span><span>Illustrator</span><span>Figma</span><span>After Effects</span><span>Premiere Pro</span>
+          </div>
         </div>
-
-        <div class="hero-photo">
-          <!-- Conseil : remplace par une photo nette et pro (et idéalement hébergée dans ton dossier, ex: images/portrait.webp) -->
-          <img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Portrait de Delarose Doamba" width="340" height="340">
-          <div class="badge-available">Disponible pour vos projets</div>
+        <div class="hero-visual reveal">
+          <div class="portrait-frame">
+            <img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Portrait de Delarose Doamba" width="460" height="460" fetchpriority="high">
+          </div>
+          <div class="availability-card"><span class="status-dot"></span><span>Disponible pour vos projets</span></div>
+          <div class="hero-stamp" aria-hidden="true">CRÉATIVITÉ<br>✳<br>IMPACT</div>
         </div>
       </div>
+      <div class="hero-bottom container"><span>01 / CRÉATION VISUELLE</span><span>DES IDÉES, DE L'IMPACT.</span></div>
     </section>
 
-    <!-- ================= SERVICES ================= -->
-    <section id="services" class="section section-alt" data-animate>
+    <section class="section section-services" id="services">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Services</span>
-          <h2>Ce que je peux faire pour vous</h2>
-          <p>Des créations modernes et des solutions digitales sur mesure.</p>
+        <div class="section-heading reveal">
+          <span class="eyebrow">Comment je peux vous aider</span>
+          <h2>Des idées fortes.<br><span>Une image cohérente.</span></h2>
+          <p>Des créations modernes et des solutions digitales sur mesure, à chaque étape de votre projet.</p>
         </div>
-        <ul class="services-grid">
-          <li class="service">
-            <div class="service-icon"><i class="fas fa-palette"></i></div>
-            <h3>Affiches & Flyers</h3>
-            <p>Des visuels percutants pour vos événements, promotions et réseaux sociaux.</p>
-          </li>
-          <li class="service">
-            <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
-            <h3>Identité visuelle</h3>
-            <p>Logo, couleurs et charte graphique pour une marque cohérente et reconnaissable.</p>
-          </li>
-          <li class="service">
-            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-            <h3>Sites Web</h3>
-            <p>Design UI/UX moderne et sites responsives, adaptés à votre image.</p>
-          </li>
-          <li class="service">
-            <div class="service-icon"><i class="fas fa-video"></i></div>
-            <h3>Montage vidéo</h3>
-            <p>Vidéos promotionnelles, reels et contenus dynamiques pour vos réseaux.</p>
-          </li>
-          <li class="service">
-            <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-            <h3>Marketing digital</h3>
-            <p>Email marketing et stratégie de contenu pour booster votre visibilité.</p>
-          </li>
-        </ul>
+        <div class="services-grid">
+          <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div><h3>Identité visuelle</h3><p>Logo, couleurs et charte graphique pour une marque cohérente et reconnaissable.</p></article>
+          <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon"><i class="fa-regular fa-image" aria-hidden="true"></i></div><h3>Affiches & flyers</h3><p>Des visuels percutants pour vos événements, promotions et réseaux sociaux.</p></article>
+          <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div><h3>Sites web</h3><p>Des interfaces responsives, élégantes et simples à utiliser.</p></article>
+          <article class="service-card reveal"><span class="service-number">04</span><div class="service-icon"><i class="fa-solid fa-clapperboard" aria-hidden="true"></i></div><h3>Montage vidéo</h3><p>Des contenus dynamiques pour donner vie à votre histoire et à votre marque.</p></article>
+          <article class="service-card reveal"><span class="service-number">05</span><div class="service-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div><h3>Marketing digital</h3><p>Du contenu et des campagnes conçus pour gagner en visibilité.</p></article>
+        </div>
       </div>
     </section>
 
-    <!-- ================= PORTFOLIO ================= -->
-    <section id="portfolio" class="section" data-animate>
+    <section class="section section-portfolio" id="portfolio">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Portfolio</span>
-          <h2>Quelques réalisations</h2>
-          <p>Cliquez sur une réalisation pour l'ouvrir dans une nouvelle page.</p>
+        <div class="portfolio-heading reveal">
+          <div class="section-heading">
+            <span class="eyebrow">Sélection de projets</span>
+            <h2>Quelques réalisations<span class="accent-dot">.</span></h2>
+            <p>Un aperçu de projets créatifs conçus avec soin.</p>
+          </div>
+          <button type="button" class="button button-primary portfolio-open" id="portfolio-open" aria-haspopup="dialog" aria-controls="portfolio-modal">
+            Toutes les réalisations <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </button>
         </div>
-
-        <!-- Les filtres sont générés automatiquement à partir des catégories de projets.js -->
-        <div class="portfolio-filter" id="portfolio-filter" role="group" aria-label="Filtrer les projets"></div>
-        <div class="grid" id="portfolio-grid"></div>
+        <div class="project-grid" id="featured-projects" aria-label="Projets sélectionnés"></div>
+        <p class="portfolio-footnote"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Sélectionnez un projet pour l'agrandir, ou ouvrez la galerie complète.</p>
       </div>
     </section>
 
-    <!-- ================= À PROPOS ================= -->
-    <section id="apropos" class="section section-alt" data-animate>
+    <section class="section section-about" id="apropos">
       <div class="container about-grid">
-        <div class="about-text">
+        <div class="about-copy reveal">
           <span class="eyebrow">À propos</span>
-          <h2>Créatif, à l'écoute et orienté résultats</h2>
-          <!-- Personnalise ce texte avec ton parcours -->
-          <p>
-            Je suis Delarose Doamba, graphiste, designer web et monteur vidéo basé à Ouagadougou.
-            J'accompagne entrepreneurs, entreprises et organisateurs d'événements dans la création
-            de visuels qui attirent l'attention et donnent envie d'agir.
-          </p>
-          <p>
-            Ma méthode est simple : comprendre votre besoin, proposer une création soignée,
-            l'ajuster avec vous, et livrer dans les délais.
-          </p>
-          <a href="#contact" class="btn">Discutons de votre projet</a>
+          <h2>La créativité au service de <span>vos ambitions.</span></h2>
+          <p>Je suis Delarose Doamba, graphiste, designer web et monteur vidéo basé à Ouagadougou. J'accompagne entrepreneurs, entreprises et organisateurs d'événements dans la création de visuels qui attirent l'attention et donnent envie d'agir.</p>
+          <p>Ma méthode est simple : comprendre votre besoin, proposer une création soignée, l'ajuster avec vous et livrer dans les délais.</p>
+          <a class="text-link" href="#contact">En savoir plus sur votre projet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
-
-        <!-- Mets ici tes vrais chiffres -->
-        <div class="stats" id="stats">
-          <div class="stat">
-            <div class="stat-number" data-target="50">0</div>
-            <p>Projets réalisés</p>
-          </div>
-          <div class="stat">
-            <div class="stat-number" data-target="40">0</div>
-            <p>Clients satisfaits</p>
-          </div>
-          <div class="stat">
-            <div class="stat-number" data-target="5">0</div>
-            <p>Années d'expérience</p>
-          </div>
+        <div class="stats-grid reveal" aria-label="Quelques chiffres">
+          <div class="stat-card stat-feature"><strong data-target="50">0</strong><span>Projets réalisés</span></div>
+          <div class="stat-card"><strong data-target="40">0</strong><span>Clients satisfaits</span></div>
+          <div class="stat-card"><strong data-target="5">0</strong><span>Années d'expérience</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= AVIS ================= -->
-    <section id="avis" class="section" data-animate>
+    <section class="section section-testimonials" id="avis">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Avis</span>
-          <h2>Ils m'ont fait confiance</h2>
+        <div class="section-heading reveal">
+          <span class="eyebrow">Ils m'ont fait confiance</span>
+          <h2>Des collaborations qui <span>comptent.</span></h2>
         </div>
-
-        <div class="testimonials-grid">
-          <article class="testimonial">
-            <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testimonial-text">« Delarose a transformé ma vision en réalité. Un travail professionnel et créatif ! »</p>
-            <div class="testimonial-author">
-              <div class="avatar" aria-hidden="true">JZ</div>
-              <div><strong>Jean Zongo</strong><span>Entrepreneur</span></div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testimonial-text">« Service excellent et rapide. Je recommande vivement ! »</p>
-            <div class="testimonial-author">
-              <div class="avatar" aria-hidden="true">IR</div>
-              <div><strong>Ilboudo Rosine</strong><span>Directrice Marketing</span></div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testimonial-text">« Un vrai professionnel. À l'écoute et créatif. Parfait ! »</p>
-            <div class="testimonial-author">
-              <div class="avatar" aria-hidden="true">SM</div>
-              <div><strong>Sanfo Mohamed</strong><span>Fondateur de startup</span></div>
-            </div>
-          </article>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« Delarose a transformé ma vision en réalité. Un travail professionnel et créatif ! »</blockquote><div class="reviewer"><span class="reviewer-avatar">JZ</span><span><strong>Jean Zongo</strong><small>Entrepreneur</small></span></div></article>
+          <article class="testimonial-card reveal"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« Service excellent et rapide. Je recommande vivement ! »</blockquote><div class="reviewer"><span class="reviewer-avatar">IR</span><span><strong>Ilboudo Rosine</strong><small>Directrice Marketing</small></span></div></article>
+          <article class="testimonial-card reveal"><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>« Un vrai professionnel. À l'écoute et créatif. Parfait ! »</blockquote><div class="reviewer"><span class="reviewer-avatar">SM</span><span><strong>Sanfo Mohamed</strong><small>Fondateur de startup</small></span></div></article>
         </div>
-
-        <div class="review-cta">
-          <a class="btn ghost" href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-facebook"></i> Laisser un avis sur Facebook
-          </a>
-        </div>
+        <div class="center-action"><a class="button button-secondary" href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Laisser un avis sur Facebook <i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></div>
       </div>
     </section>
 
-    <!-- ================= CTA ================= -->
-    <section class="section" style="padding-top:0" data-animate>
-      <div class="container">
-        <div class="cta-box">
-          <h2>Prêt à démarrer votre projet ?</h2>
-          <p>Parlez-moi de votre idée, je vous réponds rapidement avec une proposition.</p>
-          <a href="#contact" class="btn">Demander un devis gratuit</a>
-        </div>
-      </div>
+    <section class="section section-cta">
+      <div class="container"><div class="cta-panel reveal"><div><span class="eyebrow">Votre prochain projet commence ici</span><h2>Prêt à donner vie<br>à votre idée ?</h2></div><a class="button button-light" href="#contact">Demander un devis <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><span class="cta-decoration" aria-hidden="true">✳</span></div></div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section section-alt" data-animate>
+    <section class="section section-contact" id="contact">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Contact</span>
-          <h2>Parlons de votre projet</h2>
-          <p>Remplissez le formulaire : votre message s'ouvre directement dans WhatsApp, prêt à m'être envoyé.</p>
-        </div>
-
+        <div class="section-heading reveal"><span class="eyebrow">Contact</span><h2>Parlons de <span>votre projet.</span></h2><p>Décrivez votre besoin ; votre message s'ouvrira dans WhatsApp, prêt à être envoyé.</p></div>
         <div class="contact-grid">
-          <form class="contact-form" id="contact-form">
-            <div class="form-2col">
-              <div class="form-row">
-                <label for="c-nom">Nom</label>
-                <input type="text" id="c-nom" name="nom" placeholder="Votre nom" autocomplete="name" required>
-              </div>
-              <div class="form-row">
-                <label for="c-service">Service souhaité</label>
-                <select id="c-service" name="service">
-                  <option>Affiche / Flyer</option>
-                  <option>Identité visuelle / Logo</option>
-                  <option>Site web</option>
-                  <option>Montage vidéo</option>
-                  <option>Marketing digital</option>
-                  <option>Autre</option>
-                </select>
-              </div>
+          <form class="contact-form reveal" id="contact-form">
+            <div class="form-row">
+              <label for="c-nom">Votre nom</label>
+              <input type="text" id="c-nom" name="nom" placeholder="Ex. Awa Ouédraogo" autocomplete="name" required>
             </div>
             <div class="form-row">
-              <label for="c-message">Message</label>
-              <textarea id="c-message" name="message" rows="5" placeholder="Décrivez votre projet, vos délais, votre budget…" required></textarea>
+              <label for="c-service">Service souhaité</label>
+              <select id="c-service" name="service"><option>Affiche / Flyer</option><option>Identité visuelle / Logo</option><option>Site web</option><option>Montage vidéo</option><option>Marketing digital</option><option>Autre</option></select>
             </div>
-            <button class="btn whatsapp" type="submit"><i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp</button>
-            <p class="form-note">Vous préférez l'email ? <a href="mailto:romeodoamba980@gmail.com">romeodoamba980@gmail.com</a></p>
+            <div class="form-row">
+              <label for="c-message">Parlez-moi de votre projet</label>
+              <textarea id="c-message" name="message" rows="5" placeholder="Votre idée, vos délais, votre budget…" required></textarea>
+            </div>
+            <button class="button button-primary" type="submit">Envoyer sur WhatsApp <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></button>
+            <p class="form-note">Ou par email : <a href="mailto:romeodoamba980@gmail.com">romeodoamba980@gmail.com</a></p>
           </form>
-
-          <aside class="contact-info">
-            <h3>Réseaux & Contact</h3>
-            <ul class="contact-list">
-              <li><a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +226 73 06 10 50</a></li>
-              <li><a href="mailto:romeodoamba980@gmail.com"><i class="fas fa-envelope"></i> romeodoamba980@gmail.com</a></li>
-              <li><a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> @delarose__doamba</a></li>
-              <li><a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-            </ul>
-            <p class="response-time"><i class="far fa-clock"></i> Je réponds sous 48 h.</p>
+          <aside class="contact-aside reveal">
+            <span class="eyebrow">Restons en contact</span><h3>Un projet en tête ?<br>Je suis à votre écoute.</h3>
+            <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +226 73 06 10 50</a>
+            <a href="mailto:romeodoamba980@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i> romeodoamba980@gmail.com</a>
+            <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> @delarose__doamba</a>
+            <span class="response-note"><i class="fa-regular fa-clock" aria-hidden="true"></i> Réponse sous 48 h</span>
           </aside>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="socials">
-        <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top">Delarose<span>.</span></a>
+      <p>© <span id="year"></span> Delarose Doamba. Tous droits réservés.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
-      <p>&copy; <span id="year"></span> Delarose Doamba — Tous droits réservés.</p>
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="Me contacter sur WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a class="whatsapp-float" href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="Me contacter sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
-  <!-- Liste de tes réalisations (fichier partagé avec projet.html) -->
-  <script src="projets.js"></script>
+  <div class="portfolio-modal" id="portfolio-modal" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div><span class="eyebrow">Portfolio complet</span><h2 id="portfolio-modal-title">Toutes les réalisations<span class="accent-dot">.</span></h2><p>Choisissez une catégorie et ouvrez un projet pour le voir en grand.</p></div>
+        <button class="icon-button" id="portfolio-close" type="button" aria-label="Fermer la galerie"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="portfolio-filter" id="portfolio-filter" role="group" aria-label="Filtrer les projets"></div>
+      <div class="project-grid modal-project-grid" id="portfolio-grid"></div>
+    </div>
+  </div>
 
-  <script>
-    const WHATSAPP = "22673061050";
-
-    /* ---------- Année ---------- */
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    /* ---------- Thème clair / sombre ---------- */
-    const themeToggle = document.getElementById("theme-toggle");
-
-    function setTheme(dark) {
-      document.body.classList.toggle("dark-mode", dark);
-      themeToggle.classList.toggle("active", dark);
-      themeToggle.setAttribute("aria-pressed", String(dark));
-      themeToggle.setAttribute("aria-label", dark ? "Activer le mode clair" : "Activer le mode sombre");
-    }
-    let savedTheme = null;
-    try {
-      savedTheme = localStorage.getItem("theme");
-    } catch (e) {}
-    setTheme(savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches);
-    themeToggle.addEventListener("click", () => {
-      const dark = !document.body.classList.contains("dark-mode");
-      setTheme(dark);
-      try {
-        localStorage.setItem("theme", dark ? "dark" : "light");
-      } catch (e) {}
-    });
-
-    /* ---------- Menu mobile ---------- */
-    const navToggle = document.getElementById("nav-toggle");
-    const nav = document.getElementById("main-nav");
-
-    function closeMenu() {
-      nav.classList.remove("open");
-      navToggle.classList.remove("active");
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-    navToggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      navToggle.classList.toggle("active", open);
-      navToggle.setAttribute("aria-expanded", String(open));
-    });
-    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-
-    /* ---------- Lien actif dans le menu ---------- */
-    const navLinks = nav.querySelectorAll("a");
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + entry.target.id));
-        }
-      });
-    }, {
-      rootMargin: "-45% 0px -50% 0px"
-    });
-    document.querySelectorAll("section[id]").forEach(s => sectionObserver.observe(s));
-
-    /* ---------- Animations au scroll ---------- */
-    const animObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          animObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    document.querySelectorAll("[data-animate]").forEach(el => animObserver.observe(el));
-
-    /* ---------- Compteurs ---------- */
-    function animateCounters() {
-      document.querySelectorAll(".stat-number").forEach(counter => {
-        const target = parseInt(counter.dataset.target, 10);
-        const duration = 1500;
-        const start = performance.now();
-
-        function tick(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = Math.floor(eased * target) + (progress === 1 ? "+" : "");
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      });
-    }
-    const statsObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        animateCounters();
-        statsObserver.disconnect();
-      }
-    }, {
-      threshold: 0.4
-    });
-    statsObserver.observe(document.getElementById("stats"));
-
-    /* ---------- Portfolio : grille + filtres ---------- */
-    const grid = document.getElementById("portfolio-grid");
-    const filterBox = document.getElementById("portfolio-filter");
-
-    PROJETS.forEach((p, i) => {
-      // Chaque réalisation ouvre sa propre page dans un nouvel onglet
-      const card = document.createElement("a");
-      card.className = "card";
-      card.href = "projet.html?p=" + i;
-      card.target = "_blank";
-      card.rel = "noopener";
-      card.dataset.category = p.categorie;
-      card.setAttribute("aria-label", "Voir le projet : " + p.titre + " (nouvel onglet)");
-
-      const imgWrap = document.createElement("div");
-      imgWrap.className = "card-img";
-      const img = document.createElement("img");
-      img.src = p.images[0];
-      img.alt = p.titre + " — " + p.categorie;
-      img.loading = "lazy";
-      imgWrap.appendChild(img);
-      card.appendChild(imgWrap);
-
-      if (p.youtube || p.images.length > 1) {
-        const badge = document.createElement("span");
-        badge.className = "card-badge";
-        badge.innerHTML = p.youtube ? '<i class="fas fa-play"></i> Vidéo' : '<i class="far fa-images"></i> ' + p.images.length;
-        card.appendChild(badge);
-      }
-
-      const meta = document.createElement("div");
-      meta.className = "card-meta";
-      const strong = document.createElement("strong");
-      strong.textContent = p.titre;
-      const span = document.createElement("span");
-      span.textContent = p.categorie;
-      meta.append(strong, span);
-      card.appendChild(meta);
-
-      grid.appendChild(card);
-    });
-
-    // Filtres (sans bouton « Tous ») : au départ tout est affiché.
-    // Un clic sur une catégorie filtre ; un 2e clic sur la même catégorie réaffiche tout.
-    const categories = [...new Set(PROJETS.map(p => p.categorie))];
-    let activeCat = null;
-    categories.forEach(cat => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "filter-btn";
-      btn.textContent = cat;
-      btn.setAttribute("aria-pressed", "false");
-      btn.addEventListener("click", () => {
-        activeCat = activeCat === cat ? null : cat;
-        filterBox.querySelectorAll(".filter-btn").forEach(b => {
-          const on = b.textContent === activeCat;
-          b.classList.toggle("active", on);
-          b.setAttribute("aria-pressed", String(on));
-        });
-        grid.querySelectorAll(".card").forEach(card => {
-          card.classList.toggle("hidden", activeCat !== null && card.dataset.category !== activeCat);
-        });
-      });
-      filterBox.appendChild(btn);
-    });
-
-    /* ---------- Formulaire de contact → WhatsApp ---------- */
-    document.getElementById("contact-form").addEventListener("submit", e => {
-      e.preventDefault();
-      const nom = document.getElementById("c-nom").value.trim();
-      const service = document.getElementById("c-service").value;
-      const message = document.getElementById("c-message").value.trim();
-      const texte = `Bonjour Delarose, je m'appelle ${nom}.\nService : ${service}\n\n${message}`;
-      window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texte), "_blank", "noopener");
-    });
-  </script>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse de projet" aria-hidden="true">
+    <button class="icon-button lightbox-close" id="lb-close" type="button" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+    <button class="icon-button lightbox-prev" id="lb-prev" type="button" aria-label="Projet précédent"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content"><div class="lightbox-media" id="lb-media"></div><div class="lightbox-caption" id="lb-caption"></div></div>
+    <button class="icon-button lightbox-next" id="lb-next" type="button" aria-label="Projet suivant"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
 </body>
-
 </html>
