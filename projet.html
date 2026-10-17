@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisation — Delarose Doamba</title>
+  <meta name="theme-color" content="#00a5bb" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* Mêmes couleurs que index.html */
+    :root {
+      --accent: #00a5bb;
+      --accent-2: #00d4ee;
+      --bg: #f5f6fa;
+      --bg-alt: #ffffff;
+      --surface: #ffffff;
+      --text: #14161a;
+      --text-soft: #555b66;
+      --border: #e3e6ec;
+      --header: rgba(255, 255, 255, 0.85);
+      --shadow: 0 10px 30px rgba(20, 22, 26, 0.08);
+      --radius: 16px;
+    }
+
+    body.dark-mode {
+      --bg: #0b0d10;
+      --bg-alt: #111418;
+      --surface: #171b21;
+      --text: #f1f3f6;
+      --text-soft: #a7afbb;
+      --border: #262c35;
+      --header: rgba(11, 13, 16, 0.85);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* En-tête */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--header);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 70px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .back:hover {
+      color: var(--accent);
+    }
+
+    /* Boutons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 165, 187, 0.3);
+    }
+
+    .btn.whatsapp {
+      background: #25d366;
+      border-color: #25d366;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    /* Contenu du projet */
+    .project-head {
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-head h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-head p {
+      color: var(--text-soft);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .media {
+      display: grid;
+      gap: 1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .media img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+
+    .video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Appel à l'action */
+    .cta-box {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-box p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Projets précédent / suivant */
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .pager a {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .pager a:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .pager small {
+      display: block;
+      color: var(--text-soft);
+      font-size: 0.8rem;
+    }
+
+    .pager strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .pager .next {
+      text-align: right;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .not-found p {
+      color: var(--text-soft);
+      margin: 0.75rem 0 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 520px) {
+      .pager {
+        flex-direction: column;
+      }
+
+      .pager .next {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Delarose<span>.</span></a>
+      <a class="back" href="index.html#portfolio"><i class="fas fa-arrow-left"></i> Toutes les réalisations</a>
+    </div>
+  </header>
+
+  <main class="container" id="project"></main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Delarose Doamba — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Même liste de réalisations que la page d'accueil -->
+  <script src="projets.js"></script>
+  <script>
+    const WHATSAPP = "22673061050";
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Même thème (clair / sombre) que la page d'accueil
+    let savedTheme = null;
+    try {
+      savedTheme = localStorage.getItem("theme");
+    } catch (e) {}
+    const dark = savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.classList.toggle("dark-mode", dark);
+
+    // Petite fonction pour créer des éléments sans risque
+    function el(tag, attrs, text) {
+      const e = document.createElement(tag);
+      Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v));
+      if (text) e.textContent = text;
+      return e;
+    }
+
+    const main = document.getElementById("project");
+    const index = parseInt(new URLSearchParams(location.search).get("p"), 10);
+    const p = PROJETS[index];
+
+    if (!p) {
+      // Projet introuvable
+      const box = el("div", { class: "not-found" });
+      box.append(el("h1", {}, "Réalisation introuvable"),
+        el("p", {}, "Ce projet n'existe pas ou a été retiré."));
+      const back = el("a", { class: "btn", href: "index.html#portfolio" }, "Voir toutes les réalisations");
+      box.appendChild(back);
+      main.appendChild(box);
+    } else {
+      document.title = p.titre + " — Delarose Doamba";
+
+      // En-tête du projet
+      const head = el("section", { class: "project-head" });
+      head.append(el("span", { class: "eyebrow" }, p.categorie), el("h1", {}, p.titre));
+      if (p.description) head.appendChild(el("p", {}, p.description));
+      main.appendChild(head);
+
+      // Vidéo et / ou images
+      const media = el("section", { class: "media" });
+      if (p.youtube) {
+        const wrap = el("div", { class: "video" });
+        const iframe = el("iframe", {
+          src: "https://www.youtube.com/embed/" + encodeURIComponent(p.youtube),
+          title: p.titre,
+          allow: "encrypted-media; picture-in-picture; fullscreen",
+          allowfullscreen: ""
+        });
+        wrap.appendChild(iframe);
+        media.appendChild(wrap);
+      } else {
+        p.images.forEach((src, n) => {
+          media.appendChild(el("img", {
+            src,
+            alt: p.titre + (p.images.length > 1 ? " — image " + (n + 1) : ""),
+            loading: n === 0 ? "eager" : "lazy"
+          }));
+        });
+      }
+      main.appendChild(media);
+
+      // Appel à l'action WhatsApp
+      const cta = el("section", { class: "cta-box" });
+      cta.append(el("h2", {}, "Un projet similaire en tête ?"),
+        el("p", {}, "Parlez-moi de votre idée, je vous réponds rapidement."));
+      const wa = el("a", {
+        class: "btn",
+        style: "background:#fff;color:var(--accent);border-color:#fff",
+        href: "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Bonjour Delarose, j'ai vu votre réalisation « " + p.titre + " » et j'aimerais un projet similaire."),
+        target: "_blank",
+        rel: "noopener noreferrer"
+      });
+      wa.innerHTML = '<i class="fab fa-whatsapp"></i> ';
+      wa.appendChild(document.createTextNode("Discuter sur WhatsApp"));
+      cta.appendChild(wa);
+      main.appendChild(cta);
+
+      // Projet précédent / suivant
+      if (PROJETS.length > 1) {
+        const prev = (index - 1 + PROJETS.length) % PROJETS.length;
+        const next = (index + 1) % PROJETS.length;
+        const pager = el("nav", { class: "pager", "aria-label": "Autres réalisations" });
+        const a1 = el("a", { href: "projet.html?p=" + prev });
+        a1.append(el("small", {}, "← Précédent"), el("strong", {}, PROJETS[prev].titre));
+        const a2 = el("a", { class: "next", href: "projet.html?p=" + next });
+        a2.append(el("small", {}, "Suivant →"), el("strong", {}, PROJETS[next].titre));
+        pager.append(a1, a2);
+        main.appendChild(pager);
+      }
+    }
+  </script>
+</body>
+
+</html>
