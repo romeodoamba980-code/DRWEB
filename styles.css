@@ -1037,7 +1037,7 @@ h3 {
   color: #fff;
 }
 
-.whatsapp-float {
+.email-float {
   position: fixed;
   z-index: 25;
   right: 22px;
@@ -1047,14 +1047,14 @@ h3 {
   height: 55px;
   place-items: center;
   border-radius: 50%;
-  background: #20c76b;
-  box-shadow: 0 10px 28px rgba(14, 129, 72, .3);
+  background: var(--navy);
+  box-shadow: 0 10px 28px rgba(16, 27, 45, .3), 0 0 0 3px rgba(6, 166, 181, .35);
   color: #fff;
-  font-size: 1.55rem;
-  transition: transform .2s ease;
+  font-size: 1.35rem;
+  transition: transform .2s ease, background .2s ease;
 }
 
-.whatsapp-float:hover {
+.email-float:hover {
   transform: translateY(-4px) scale(1.04);
 }
 
@@ -1759,4 +1759,13 @@ body.dark-mode .hero-stamp {
 
 .stat-note {
   line-height: 1.4;
+}
+
+.email-float:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+body.dark-mode .email-float {
+  background: var(--accent);
 }
