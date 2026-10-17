@@ -26,9 +26,10 @@ const PROJECTS = [
     image: "https://i.ibb.co/8Ldt2wKP/Whats-App-Image-2025-10-29-at-12-35-48-30d4f2db.jpg"
   },
   {
-    title: "Affiche événement",
+    title: "Affiche Orbite Services",
     category: "Affiches",
-    image: "https://i.ibb.co/Y7pM1s8J/week-enk-nov-z-1.jpg"
+    description: "Affiche pour Orbite Services (études, conseils, constructions) : « L'excellence se construit en équipe ».",
+    image: "images/realisations/affiche-orbite-services.jpg"
   },
   {
     title: "Affiche promotionnelle",
