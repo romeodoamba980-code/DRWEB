@@ -1,6 +1,25 @@
 "use strict";
 
+/* TES RÉALISATIONS
+   - image  : la miniature affichée dans la grille
+   - images : (facultatif) plusieurs pages ou visuels, qu'on fait défiler dans la visionneuse
+   - description : (facultatif) une phrase affichée sous le titre dans la visionneuse */
 const PROJECTS = [
+  {
+    title: "Brochure EcoVigi Consulting",
+    category: "Brochures",
+    description: "Brochure de 7 pages pour Nana Abdoul Aziz, ingénieur QHSE : engagements, méthodologie, domaines d'intervention et offres.",
+    image: "images/realisations/nana-aziz-brochure/miniature.jpg",
+    images: [
+      "images/realisations/nana-aziz-brochure/page-1.jpg",
+      "images/realisations/nana-aziz-brochure/page-2.jpg",
+      "images/realisations/nana-aziz-brochure/page-3.jpg",
+      "images/realisations/nana-aziz-brochure/page-4.jpg",
+      "images/realisations/nana-aziz-brochure/page-5.jpg",
+      "images/realisations/nana-aziz-brochure/page-6.jpg",
+      "images/realisations/nana-aziz-brochure/page-7.jpg"
+    ]
+  },
   {
     title: "Projet personnel",
     category: "Branding",
@@ -171,6 +190,10 @@ function initializeCounters() {
   if (stats) observer.observe(stats);
 }
 
+function getPages(project) {
+  return Array.isArray(project.images) && project.images.length ? project.images : [project.image];
+}
+
 function createProjectCard(project, index) {
   const card = document.createElement("button");
   card.type = "button";
@@ -187,6 +210,15 @@ function createProjectCard(project, index) {
   image.loading = index < 3 ? "eager" : "lazy";
   image.decoding = "async";
   imageWrap.appendChild(image);
+
+  const pages = getPages(project);
+  if (pages.length > 1) {
+    const badge = document.createElement("span");
+    badge.className = "project-badge";
+    badge.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i> ';
+    badge.append(`${pages.length} pages`);
+    imageWrap.appendChild(badge);
+  }
 
   const meta = document.createElement("span");
   meta.className = "project-meta";
@@ -219,6 +251,7 @@ function initializePortfolio() {
   const lightboxCaption = document.getElementById("lb-caption");
   let returnFocus = null;
   let currentProject = 0;
+  let currentPage = 0;
 
   if (!featured || !grid || !filter || !modal || !openButton || !lightbox) return;
 
@@ -249,23 +282,33 @@ function initializePortfolio() {
     filter.appendChild(button);
   });
 
-  const showLightbox = (index) => {
+  const showLightbox = (index, page = 0) => {
     currentProject = index;
     const project = PROJECTS[currentProject];
     if (!project || !lightboxMedia || !lightboxCaption) return;
+    const pages = getPages(project);
+    currentPage = Math.min(Math.max(page, 0), pages.length - 1);
 
     lightboxMedia.replaceChildren();
     const image = document.createElement("img");
-    image.src = project.image;
-    image.alt = `${project.title} — ${project.category}`;
+    image.src = pages[currentPage];
+    image.alt = `${project.title} — ${pages.length > 1 ? `page ${currentPage + 1}` : project.category}`;
     lightboxMedia.appendChild(image);
 
     lightboxCaption.replaceChildren();
     const title = document.createElement("strong");
     title.textContent = project.title;
     const category = document.createElement("small");
-    category.textContent = project.category;
+    category.textContent = pages.length > 1
+      ? `${project.category} · page ${currentPage + 1} / ${pages.length}`
+      : project.category;
     lightboxCaption.append(title, category);
+    if (project.description) {
+      const description = document.createElement("small");
+      description.className = "lightbox-description";
+      description.textContent = project.description;
+      lightboxCaption.appendChild(description);
+    }
 
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
@@ -317,9 +360,17 @@ function initializePortfolio() {
   featured.addEventListener("click", openProjectFromCard);
   grid.addEventListener("click", openProjectFromCard);
 
+  // Les flèches font d'abord défiler les pages du projet, puis passent au projet suivant / précédent
   const stepProject = (direction) => {
+    const pages = getPages(PROJECTS[currentProject]);
+    const nextPage = currentPage + direction;
+    if (nextPage >= 0 && nextPage < pages.length) {
+      showLightbox(currentProject, nextPage);
+      return;
+    }
     currentProject = (currentProject + direction + PROJECTS.length) % PROJECTS.length;
-    showLightbox(currentProject);
+    const target = getPages(PROJECTS[currentProject]);
+    showLightbox(currentProject, direction > 0 ? 0 : target.length - 1);
   };
 
   document.getElementById("lb-close")?.addEventListener("click", closeLightbox);

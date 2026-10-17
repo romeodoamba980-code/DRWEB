@@ -1588,3 +1588,29 @@ h3 {
   height: 11px;
   margin: 3px auto;
 }
+
+/* Badge « 7 pages » sur les réalisations à plusieurs visuels */
+.project-badge {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(10, 18, 31, .72);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox-caption .lightbox-description {
+  max-width: 560px;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, .8);
+  line-height: 1.45;
+}
