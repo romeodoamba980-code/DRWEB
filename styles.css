@@ -1472,11 +1472,36 @@ h3 {
   }
 
   .cta-panel {
-    padding: 30px 23px;
+    gap: 24px;
+    padding: 34px 22px 26px;
+    border-radius: 22px;
+  }
+
+  /* Bloc « Demander un devis » : textes adaptés au téléphone */
+  .cta-panel .eyebrow {
+    font-size: .68rem;
+    letter-spacing: .12em;
+    line-height: 1.5;
+  }
+
+  .cta-panel h2 {
+    font-size: clamp(1.75rem, 8.4vw, 2.15rem);
+    letter-spacing: -.035em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  /* L'étoile décorative passe dans le coin au lieu d'être derrière le texte */
+  .cta-decoration {
+    top: -48px;
+    right: -34px;
+    font-size: 170px;
+    color: rgba(87, 222, 222, .08);
   }
 
   .cta-panel .button-light {
     width: 100%;
+    justify-content: center;
   }
 
   .footer-inner {
