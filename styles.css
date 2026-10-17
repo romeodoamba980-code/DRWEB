@@ -1769,3 +1769,28 @@ body.dark-mode .hero-stamp {
 body.dark-mode .email-float {
   background: var(--accent);
 }
+
+/* Textes des chiffres : jamais de débordement, même sur petit téléphone */
+.stat-card {
+  min-width: 0;
+}
+
+.stat-card span,
+.stat-note {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+@media (max-width: 520px) {
+  .stat-card {
+    padding: 20px 16px;
+  }
+
+  .stat-card strong {
+    font-size: 2.3rem;
+  }
+
+  .stat-note {
+    font-size: .68rem;
+  }
+}
