@@ -1569,3 +1569,22 @@ h3 {
     transform: none;
   }
 }
+
+/* Étoile dessinée en SVG (le caractère ✳ devenait un emoji vert sur iPhone) */
+.star-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.cta-decoration .star-icon {
+  display: block;
+}
+
+.hero-stamp .star-icon {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 3px auto;
+}
