@@ -1614,3 +1614,55 @@ h3 {
   color: rgba(255, 255, 255, .8);
   line-height: 1.45;
 }
+
+/* Contour de la photo : cercle + orbite animée (option C) */
+.portrait-frame {
+  z-index: 1;
+  margin: 8%;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 30px 70px rgba(16, 27, 45, .22);
+}
+
+.portrait-frame::after {
+  display: none;
+}
+
+.portrait-orbit {
+  position: absolute;
+  inset: 18px;
+  border: 1.5px dashed rgba(6, 166, 181, .55);
+  border-radius: 50%;
+  animation: portrait-orbit 16s linear infinite;
+  pointer-events: none;
+}
+
+.portrait-orbit::after {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 7px rgba(6, 166, 181, .18);
+  content: "";
+}
+
+@keyframes portrait-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.availability-card,
+.hero-stamp {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-orbit {
+    animation: none;
+  }
+}
