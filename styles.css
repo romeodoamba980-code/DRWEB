@@ -1742,3 +1742,21 @@ body.dark-mode .hero-stamp {
     animation: none;
   }
 }
+
+/* Précision sous « Clients accompagnés » */
+.stat-note {
+  display: block;
+  margin-top: 2px;
+  font-size: .72rem;
+  font-weight: 500;
+  opacity: .75;
+}
+
+/* Les chiffres des petites cartes restent alignés entre eux */
+.stat-card:not(.stat-feature) {
+  justify-content: flex-start;
+}
+
+.stat-note {
+  line-height: 1.4;
+}
