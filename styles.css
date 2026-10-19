@@ -1794,3 +1794,30 @@ body.dark-mode .email-float {
     font-size: .68rem;
   }
 }
+
+/* Avis clients : logo de l'entreprise à la place des initiales */
+.reviewer-logo {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+}
+
+@media (min-width: 981px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card blockquote {
+    min-height: 0;
+  }
+}
