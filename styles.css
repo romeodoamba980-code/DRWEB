@@ -1821,3 +1821,59 @@ body.dark-mode .email-float {
     min-height: 0;
   }
 }
+
+/* Carte « Collaboration » (projet réalisé, sans citation) */
+.collab-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(6, 166, 181, .12);
+  color: var(--accent-strong);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.collab-text {
+  min-height: 140px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.75;
+}
+
+/* Avis : défilement horizontal sur ordinateur et tablette */
+@media (min-width: 561px) {
+  .testimonial-grid {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .testimonial-grid .testimonial-card {
+    flex: 0 0 min(300px, 78%);
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .collab-text {
+    min-height: 0;
+  }
+}
+
+/* Le nom du client reste aligné en bas de chaque carte */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card .reviewer {
+  margin-top: auto;
+}
