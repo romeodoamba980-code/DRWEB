@@ -1877,3 +1877,7 @@ body.dark-mode .email-float {
 .testimonial-card .reviewer {
   margin-top: auto;
 }
+
+.collab-label {
+  align-self: flex-start;
+}
