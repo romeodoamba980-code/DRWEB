@@ -1,8 +1,8 @@
-# DRWEB — Portfolio de Delarose Doamba
+# MrDoamba — Portfolio de Delarose Doamba
 
 Graphiste, designer web et monteur vidéo à Ouagadougou.
 
-Site en ligne : https://romeodoamba980-code.github.io/DRWEB/
+Site en ligne : https://romeodoamba980-code.github.io/MrDoamba/
 
 ## Fichiers
 - `index.html` : structure et textes du site
