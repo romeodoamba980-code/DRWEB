@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <title>Demande de devis — Mr Doamba, graphiste à Ouagadougou</title>
+  <meta name="description" content="Choisissez votre service, répondez à quelques questions et obtenez une estimation de prix immédiate. Envoi de la demande sur WhatsApp.">
+  <link rel="canonical" href="https://romeodoamba980-code.github.io/MrDoamba/outils/commande.html">
+
+  <!-- Aperçu quand le lien est partagé sur WhatsApp ou Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Mr Doamba">
+  <meta property="og:title" content="Demande de devis — Mr Doamba">
+  <meta property="og:description" content="Logo, affiche, site web, vidéo, motion design… Votre estimation de prix en 2 minutes.">
+  <meta property="og:url" content="https://romeodoamba980-code.github.io/MrDoamba/outils/commande.html">
+  <meta property="og:image" content="https://romeodoamba980-code.github.io/MrDoamba/images/og/outils.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="assets/outils.css">
+  <link rel="stylesheet" href="assets/commande.css">
+  <script src="assets/outils.js" defer></script>
+  <script src="data/tarifs.js" defer></script>
+  <script src="assets/commande.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../" aria-label="Mr Doamba, accueil">Mr Doamba<span>.</span></a>
+      <nav class="site-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="../#services">Services</a>
+        <a href="../#portfolio">Portfolio</a>
+        <a href="../#apropos">À propos</a>
+        <a href="../#avis">Avis</a>
+        <a href="./" class="active">Outils</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activer le mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="outils-main commande">
+    <div class="container commande-wrap">
+      <ol class="outils-breadcrumb" aria-label="Fil d'Ariane">
+        <li><a href="../">Accueil</a></li>
+        <li><a href="./">Outils &amp; Services</a></li>
+        <li aria-current="page">Demande de devis</li>
+      </ol>
+
+      <!-- ===== Écran 1 : catalogue des services ===== -->
+      <section id="ecran-catalogue" aria-labelledby="titre-catalogue">
+        <span class="eyebrow">Demande de devis</span>
+        <h1 id="titre-catalogue">De quoi avez-vous <span>besoin&nbsp;?</span></h1>
+        <p class="outils-lead">Choisissez un service, répondez à quelques questions et découvrez tout de suite une estimation du prix. Vous m'envoyez ensuite la demande sur WhatsApp.</p>
+        <div id="catalogue" class="catalogue"></div>
+      </section>
+
+      <!-- ===== Écran 2 : formulaire en étapes ===== -->
+      <section id="ecran-formulaire" hidden>
+        <div class="cmd-head">
+          <button type="button" class="cmd-back" id="retour-catalogue"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Tous les services</button>
+          <div class="cmd-title">
+            <span class="tool-icon"><i id="service-icone" class="fa-solid" aria-hidden="true"></i></span>
+            <div>
+              <h1 id="service-titre"></h1>
+              <p id="service-resume"></p>
+            </div>
+          </div>
+          <ol class="cmd-steps" aria-label="Étapes">
+            <li data-etape="1"><span>1</span> Votre projet</li>
+            <li data-etape="2"><span>2</span> Vos coordonnées</li>
+            <li data-etape="3"><span>3</span> Votre estimation</li>
+          </ol>
+        </div>
+
+        <form id="form-commande" class="cmd-card" novalidate>
+          <!-- Étape 1 : questions du service (générées depuis data/tarifs.js) -->
+          <fieldset class="cmd-etape" data-etape="1">
+            <legend class="sr-only">Votre projet</legend>
+            <div id="questions"></div>
+            <div class="cmd-actions">
+              <button type="button" class="button button-primary" data-suivant="2">Continuer <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </fieldset>
+
+          <!-- Étape 2 : coordonnées -->
+          <fieldset class="cmd-etape" data-etape="2" hidden>
+            <legend class="sr-only">Vos coordonnées</legend>
+            <div class="cmd-grid">
+              <div class="field">
+                <label for="c-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="c-nom" name="nom" autocomplete="name" placeholder="Ex. Awa Ouédraogo" required>
+                <p class="field-error" id="c-nom-err"></p>
+              </div>
+              <div class="field">
+                <label for="c-tel">Numéro WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="c-tel" name="telephone" autocomplete="tel" inputmode="tel" placeholder="70 12 34 56" required>
+                <p class="field-error" id="c-tel-err"></p>
+              </div>
+              <div class="field">
+                <label for="c-entreprise">Entreprise ou organisation</label>
+                <input type="text" id="c-entreprise" name="entreprise" autocomplete="organization" placeholder="Facultatif">
+              </div>
+              <div class="field">
+                <label for="c-ville">Ville</label>
+                <input type="text" id="c-ville" name="ville" autocomplete="address-level2" value="Ouagadougou">
+              </div>
+              <div class="field">
+                <label for="c-quand">Pour quand ?</label>
+                <select id="c-quand" name="quand">
+                  <option>Pas pressé</option>
+                  <option>Dans la semaine</option>
+                  <option>Urgent (moins de 48 h)</option>
+                  <option>Date précise (je la donne dans le message)</option>
+                </select>
+              </div>
+              <div class="field cmd-wide">
+                <label for="c-message">Autre chose à ajouter ?</label>
+                <textarea id="c-message" name="message" placeholder="Facultatif"></textarea>
+              </div>
+            </div>
+            <p class="privacy-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Vos réponses restent sur votre téléphone. Elles ne me sont envoyées que lorsque vous appuyez sur « Envoyer sur WhatsApp ».</p>
+            <div class="cmd-actions">
+              <button type="button" class="button button-secondary" data-precedent="1"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour</button>
+              <button type="button" class="button button-primary" data-suivant="3">Voir mon estimation <i class="fa-solid fa-calculator" aria-hidden="true"></i></button>
+            </div>
+          </fieldset>
+
+          <!-- Étape 3 : estimation et envoi -->
+          <div class="cmd-etape" data-etape="3" hidden>
+            <div class="estimation" aria-live="polite">
+              <span class="estimation-label">Estimation pour votre projet</span>
+              <p class="estimation-prix" id="est-prix"></p>
+              <p class="estimation-sous" id="est-sous"></p>
+            </div>
+            <ul class="recap-lignes" id="recap-lignes" aria-label="Détail du calcul"></ul>
+            <dl class="recap" id="recap"></dl>
+            <p class="cmd-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Cette estimation est indicative. Je confirme le prix final avec vous après avoir lu votre demande.</p>
+            <div class="cmd-actions cmd-actions-final">
+              <a class="button button-primary" id="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Envoyer sur WhatsApp</a>
+              <button type="button" class="button button-secondary" id="btn-copier"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier le message</button>
+              <a class="button button-secondary" id="btn-email" href="#"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Par e-mail</a>
+            </div>
+            <div class="cmd-actions cmd-actions-sec">
+              <button type="button" class="cmd-link" data-precedent="1"><i class="fa-solid fa-pen" aria-hidden="true"></i> Modifier mes réponses</button>
+              <button type="button" class="cmd-link" id="btn-nouvelle"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Nouvelle demande</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="../">Mr Doamba<span>.</span></a>
+      <p>© <span id="year"></span> Delarose Doamba. Tous droits réservés.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
