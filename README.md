@@ -8,6 +8,7 @@ Site en ligne : https://romeodoamba980-code.github.io/MrDoamba/
 - `index.html` : structure et textes du site
 - `styles.css` : design, galerie et animations
 - `script.js` : menu, thème, compteurs, galerie, visionneuse et formulaire WhatsApp (la liste des réalisations est en haut, dans `PROJECTS`)
+- `data/realisations.json` et `data/templates.json` : visuels publiés depuis Photoshop avec le plugin « Publier sur mon site ». Les réalisations s'ajoutent en tête de la galerie ; les templates s'affichent dans la section « Templates » (masquée tant qu'elle est vide). Pour retirer un visuel, supprime son bloc dans le fichier.
 
 ## Boîte à outils (dossier `outils/`)
 - `outils/index.html` : page « Outils & Services » (lien « Outils » dans le menu)

@@ -50,6 +50,53 @@ const PROJECTS = [
 
 const WHATSAPP_NUMBER = "22673061050";
 
+/* VISUELS PUBLIÉS DEPUIS PHOTOSHOP
+   Le plugin « Publier sur mon site » remplit ces deux fichiers automatiquement :
+   - data/realisations.json : ajoutés en tête de la galerie ci-dessus
+   - data/templates.json    : affichés dans la section « Templates »
+   Pour retirer un visuel publié, supprime son bloc dans le fichier JSON. */
+const PUBLISHED_FILES = {
+  projects: "data/realisations.json",
+  templates: "data/templates.json"
+};
+
+// Le plugin peut envoyer un type au singulier : on le range dans la bonne catégorie de la galerie
+const CATEGORY_ALIASES = {
+  "Affiche": "Affiches",
+  "Flyer": "Flyers",
+  "Logo": "Logos",
+  "Identité visuelle": "Branding",
+  "Post réseaux sociaux": "Réseaux sociaux",
+  "Carte de visite": "Cartes de visite",
+  "Bannière": "Bannières",
+  "Mockup": "Mockups",
+  "Brochure": "Brochures",
+  "Autre": "Autres"
+};
+
+async function loadPublished(file) {
+  try {
+    const response = await fetch(`${file}?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return [];
+    const items = await response.json();
+    if (!Array.isArray(items)) return [];
+    return items
+      .filter((item) => item && item.image && item.titre)
+      .map((item) => ({
+        title: item.titre,
+        category: CATEGORY_ALIASES[item.type] || item.type || "Autres",
+        image: item.image,
+        images: Array.isArray(item.images) && item.images.length ? item.images : undefined,
+        description: item.description || "",
+        client: item.client || "",
+        link: item.lien || ""
+      }));
+  } catch (error) {
+    // Site ouvert en local (file://) ou fichier absent : on garde seulement la liste PROJECTS.
+    return [];
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const get = (id) => document.getElementById(id);
 
@@ -190,11 +237,12 @@ function getPages(project) {
   return Array.isArray(project.images) && project.images.length ? project.images : [project.image];
 }
 
-function createProjectCard(project, index) {
+function createProjectCard(project, index, listName = "projects") {
   const card = document.createElement("button");
   card.type = "button";
   card.className = "project-card";
   card.dataset.projectIndex = String(index);
+  card.dataset.list = listName;
   card.dataset.category = project.category;
   card.setAttribute("aria-label", `Agrandir le projet : ${project.title}`);
 
@@ -235,7 +283,7 @@ function createProjectCard(project, index) {
   return card;
 }
 
-function initializePortfolio() {
+async function initializePortfolio() {
   const featured = document.getElementById("featured-projects");
   const grid = document.getElementById("portfolio-grid");
   const filter = document.getElementById("portfolio-filter");
@@ -251,13 +299,32 @@ function initializePortfolio() {
 
   if (!featured || !grid || !filter || !modal || !openButton || !lightbox) return;
 
-  PROJECTS.forEach((project, index) => {
+  const [publishedProjects, templates] = await Promise.all([
+    loadPublished(PUBLISHED_FILES.projects),
+    loadPublished(PUBLISHED_FILES.templates)
+  ]);
+  // Les visuels publiés depuis Photoshop (les plus récents d'abord) passent avant la liste PROJECTS
+  const lists = { projects: [...publishedProjects, ...PROJECTS], templates };
+  const projects = lists.projects;
+  let activeList = "projects";
+
+  projects.forEach((project, index) => {
     const card = createProjectCard(project, index);
     grid.appendChild(card);
     if (index < 3) featured.appendChild(card.cloneNode(true));
   });
 
-  const categories = ["Tous", ...new Set(PROJECTS.map((project) => project.category))];
+  const templatesSection = document.getElementById("templates");
+  const templatesGrid = document.getElementById("templates-grid");
+  if (templatesSection && templatesGrid && templates.length) {
+    templates.forEach((template, index) => {
+      templatesGrid.appendChild(createProjectCard(template, index, "templates"));
+    });
+    templatesSection.hidden = false;
+    document.querySelectorAll("a[href='#templates']").forEach((link) => { link.hidden = false; });
+  }
+
+  const categories = ["Tous", ...new Set(projects.map((project) => project.category))];
   categories.forEach((category, index) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -280,7 +347,7 @@ function initializePortfolio() {
 
   const showLightbox = (index, page = 0) => {
     currentProject = index;
-    const project = PROJECTS[currentProject];
+    const project = lists[activeList][currentProject];
     if (!project || !lightboxMedia || !lightboxCaption) return;
     const pages = getPages(project);
     currentPage = Math.min(Math.max(page, 0), pages.length - 1);
@@ -299,11 +366,38 @@ function initializePortfolio() {
       ? `${project.category} · page ${currentPage + 1} / ${pages.length}`
       : project.category;
     lightboxCaption.append(title, category);
+    if (project.client) {
+      const client = document.createElement("small");
+      client.textContent = `Client : ${project.client}`;
+      lightboxCaption.appendChild(client);
+    }
     if (project.description) {
       const description = document.createElement("small");
       description.className = "lightbox-description";
       description.textContent = project.description;
       lightboxCaption.appendChild(description);
+    }
+
+    // Templates : bouton pour commander (lien choisi dans Photoshop, sinon WhatsApp)
+    // Réalisations : bouton seulement si un lien a été renseigné
+    const isTemplate = activeList === "templates";
+    if (isTemplate || project.link) {
+      const cta = document.createElement("a");
+      cta.className = "button button-primary lightbox-cta";
+      cta.target = "_blank";
+      cta.rel = "noopener noreferrer";
+      if (project.link) {
+        cta.href = project.link;
+      } else {
+        const text = `Bonjour Delarose, je suis intéressé(e) par le template « ${project.title} ».`;
+        cta.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      }
+      cta.textContent = isTemplate ? "Commander ce template " : "Voir le projet ";
+      const icon = document.createElement("i");
+      icon.className = isTemplate && !project.link ? "fa-brands fa-whatsapp" : "fa-solid fa-arrow-up-right-from-square";
+      icon.setAttribute("aria-hidden", "true");
+      cta.appendChild(icon);
+      lightboxCaption.appendChild(cta);
     }
 
     modal.classList.remove("active");
@@ -349,23 +443,26 @@ function initializePortfolio() {
     if (!card) return;
     const index = Number.parseInt(card.dataset.projectIndex, 10);
     if (!Number.isInteger(index)) return;
+    activeList = card.dataset.list === "templates" ? "templates" : "projects";
     returnFocus = card.closest("#portfolio-modal") ? openButton : card;
     showLightbox(index);
   };
 
   featured.addEventListener("click", openProjectFromCard);
   grid.addEventListener("click", openProjectFromCard);
+  templatesGrid?.addEventListener("click", openProjectFromCard);
 
   // Les flèches font d'abord défiler les pages du projet, puis passent au projet suivant / précédent
   const stepProject = (direction) => {
-    const pages = getPages(PROJECTS[currentProject]);
+    const list = lists[activeList];
+    const pages = getPages(list[currentProject]);
     const nextPage = currentPage + direction;
     if (nextPage >= 0 && nextPage < pages.length) {
       showLightbox(currentProject, nextPage);
       return;
     }
-    currentProject = (currentProject + direction + PROJECTS.length) % PROJECTS.length;
-    const target = getPages(PROJECTS[currentProject]);
+    currentProject = (currentProject + direction + list.length) % list.length;
+    const target = getPages(list[currentProject]);
     showLightbox(currentProject, direction > 0 ? 0 : target.length - 1);
   };
 
