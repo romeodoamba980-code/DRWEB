@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <title>Outils & Services — Mr Doamba, graphiste à Ouagadougou</title>
+  <meta name="description" content="Outils gratuits pour préparer vos projets (brief, validation de maquettes, catalogue WhatsApp) et offres prêtes à l'emploi : packs de visuels, mini-site express, motion design, formation.">
+  <link rel="canonical" href="https://romeodoamba980-code.github.io/MrDoamba/outils/">
+
+  <!-- Aperçu quand le lien est partagé sur WhatsApp ou Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Mr Doamba">
+  <meta property="og:title" content="Outils & Services — Mr Doamba">
+  <meta property="og:description" content="Brief client, validation de maquettes, catalogue WhatsApp, packs de visuels, mini-site express, motion templates et formation.">
+  <meta property="og:url" content="https://romeodoamba980-code.github.io/MrDoamba/outils/">
+  <meta property="og:image" content="https://romeodoamba980-code.github.io/MrDoamba/images/og/outils.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Styles du site, puis styles propres aux outils -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="assets/outils.css">
+  <script src="assets/outils.js" defer></script>
+</head>
+<body>
+  <!-- En-tête identique au site principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../" aria-label="Mr Doamba, accueil">Mr Doamba<span>.</span></a>
+      <nav class="site-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="../#services">Services</a>
+        <a href="../#portfolio">Portfolio</a>
+        <a href="../#apropos">À propos</a>
+        <a href="../#avis">Avis</a>
+        <a href="./" class="active" aria-current="page">Outils</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activer le mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="outils-main">
+    <!-- ================= En-tête de la page ================= -->
+    <section class="outils-hero">
+      <div class="container outils-hero-grid">
+        <div>
+          <ol class="outils-breadcrumb" aria-label="Fil d'Ariane">
+            <li><a href="../">Accueil</a></li>
+            <li aria-current="page">Outils &amp; Services</li>
+          </ol>
+          <span class="eyebrow"><span class="status-dot"></span> Outils &amp; Services</span>
+          <h1>Des outils pour <span>avancer plus vite.</span></h1>
+          <p class="outils-lead">Des outils gratuits pour préparer vos projets avec moi, et des offres prêtes à l'emploi pour faire grandir votre activité au Burkina Faso.</p>
+          <div class="outils-actions">
+            <a class="button button-primary" href="https://wa.me/22673061050" data-whatsapp="Bonjour Mr Doamba, je viens de votre page Outils & Services. J'aimerais en savoir plus.">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Discuter sur WhatsApp
+            </a>
+            <a class="button button-secondary" href="../#portfolio">Voir mes réalisations</a>
+          </div>
+        </div>
+        <div class="logo-theme">
+          <img class="logo-clair" src="../images/logo/logo-mr-doamba.webp" alt="Logo Mr Doamba" width="480" height="346">
+          <img class="logo-sombre" src="../images/logo/logo-mr-doamba-fond-sombre.webp" alt="Logo Mr Doamba" width="480" height="346">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Outils gratuits ================= -->
+    <section class="outils-section" aria-labelledby="titre-clients">
+      <div class="container">
+        <div class="tools-group-heading">
+          <div>
+            <span class="eyebrow">Gratuit</span>
+            <h2 id="titre-clients">Pour mes clients</h2>
+          </div>
+          <p>Des outils simples, utilisables depuis votre téléphone.</p>
+        </div>
+
+        <!--
+          Chaque outil pas encore livré porte la classe « is-soon » et un bouton inactif.
+          Quand un module est prêt : retirer « is-soon », remplacer le <span> du bouton
+          par un lien <a class="button button-primary" href="brief.html">Ouvrir</a>.
+        -->
+        <ul class="tool-grid tool-grid-4">
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Brief client</h3>
+              <p>Décrivez votre projet en quelques minutes : je reçois un brief clair et complet.</p>
+              <div class="tool-meta"><span class="badge">Gratuit</span><span class="badge badge-neutral">5 min</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Validation de maquettes</h3>
+              <p>Commentez votre maquette directement sur l'image, point par point, puis validez.</p>
+              <div class="tool-meta"><span class="badge">Gratuit</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-store" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Catalogue WhatsApp</h3>
+              <p>Saisissez vos produits et obtenez des visuels propres, prêts à poster.</p>
+              <div class="tool-meta"><span class="badge">Gratuit</span><span class="badge badge-neutral">Commerçants</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <!-- Générateur de branding : le fichier ../generateur-branding.html n'est pas encore dans le dépôt -->
+            <article class="tool-card tool-card-feature is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Générateur de branding</h3>
+              <p>Explorez des idées de logo et d'identité visuelle pour votre marque.</p>
+              <div class="tool-meta"><span class="badge">Gratuit</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Offres payantes ================= -->
+    <section class="outils-section" aria-labelledby="titre-offres">
+      <div class="container">
+        <div class="tools-group-heading">
+          <div>
+            <span class="eyebrow">Services</span>
+            <h2 id="titre-offres">Mes offres</h2>
+          </div>
+          <p>Des formules claires, avec prix et délais annoncés.</p>
+        </div>
+
+        <ul class="tool-grid tool-grid-4">
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Packs de templates</h3>
+              <p>Statuts WhatsApp, posts Facebook et carte de visite prêts à l'emploi, par secteur.</p>
+              <div class="tool-meta"><span class="badge">Dès 5&nbsp;000&nbsp;FCFA</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Mini-site express</h3>
+              <p>Votre entreprise visible sur Internet en 48&nbsp;h, avec bouton WhatsApp et carte.</p>
+              <div class="tool-meta"><span class="badge">Dès 100&nbsp;000&nbsp;FCFA</span><span class="badge badge-neutral">48&nbsp;h</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Motion templates</h3>
+              <p>Animations After Effects modifiables, ou adaptées à votre marque par mes soins.</p>
+              <div class="tool-meta"><span class="badge">Dès 30&nbsp;000&nbsp;FCFA</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card is-soon">
+              <div class="tool-card-top">
+                <span class="tool-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                <span class="badge badge-soon">Bientôt</span>
+              </div>
+              <h3>Formation &amp; ressources</h3>
+              <p>Conseils pour communiquer au Burkina, et formation en ligne ou en présentiel.</p>
+              <div class="tool-meta"><span class="badge">Formation dès 75&nbsp;000&nbsp;FCFA</span><span class="badge badge-neutral">Conseils gratuits</span></div>
+              <span class="button is-disabled" aria-disabled="true">Bientôt disponible</span>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Appel à l'action ================= -->
+    <section class="outils-section">
+      <div class="container">
+        <div class="outils-cta">
+          <div>
+            <h2>Un besoin sur mesure&nbsp;?</h2>
+            <p>Parlez-moi de votre projet : je vous réponds sous 48&nbsp;h.</p>
+          </div>
+          <a class="button button-light" href="https://wa.me/22673061050" data-whatsapp="Bonjour Mr Doamba, j'ai un projet sur mesure à vous présenter.">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Écrire sur WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page identique au site principal -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="../">Mr Doamba<span>.</span></a>
+      <p>© <span id="year"></span> Delarose Doamba. Tous droits réservés.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
