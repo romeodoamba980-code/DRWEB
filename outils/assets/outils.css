@@ -519,10 +519,15 @@ body.dark-mode .outils-toast {
   }
 }
 
+/* Photo de l'en-tête (mêmes styles que l'accueil, adaptés à la grille des outils) */
+.outils-hero .hero-visual {
+  width: min(100%, 400px);
+  justify-self: center;
+}
+
 @media (max-width: 899px) {
-  .outils-hero .logo-theme {
-    width: min(55%, 200px);
-    margin-inline: 0;
+  .outils-hero .hero-visual {
+    width: min(76%, 320px);
     order: -1;
   }
 }

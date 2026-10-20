@@ -72,9 +72,17 @@
             <a class="button button-secondary" href="../#portfolio">Voir mes réalisations</a>
           </div>
         </div>
-        <div class="logo-theme">
-          <img class="logo-clair" src="../images/logo/logo-mr-doamba.webp" alt="Logo Mr Doamba" width="480" height="346">
-          <img class="logo-sombre" src="../images/logo/logo-mr-doamba-fond-sombre.webp" alt="Logo Mr Doamba" width="480" height="346">
+        <!-- Photo, orbite et badges : mêmes éléments (et mêmes classes) que l'accueil du site -->
+        <div class="hero-visual">
+          <span class="portrait-orbit" aria-hidden="true"></span>
+          <div class="portrait-frame">
+            <img src="https://i.ibb.co/q3mCdq24/Whats-App-Image-2025-09-29-23-51-57-348fb57d.jpg" alt="Portrait de Delarose Doamba" width="460" height="460" fetchpriority="high">
+          </div>
+          <div class="availability-card"><span class="status-dot"></span><span>Disponible pour vos projets</span></div>
+          <div class="hero-stamp" aria-hidden="true">
+            <svg class="stamp-ring" viewBox="0 0 104 104"><defs><path id="stamp-circle" d="M52,52 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#stamp-circle" textLength="236" lengthAdjust="spacing">CRÉATIVITÉ • IMPACT • DESIGN •</textPath></text></svg>
+            <span class="stamp-core"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg></span>
+          </div>
         </div>
       </div>
     </section>
@@ -92,8 +100,9 @@
 
         <!--
           Chaque outil pas encore livré porte la classe « is-soon » et un bouton inactif.
-          Quand un module est prêt : retirer « is-soon », remplacer le <span> du bouton
-          par un lien <a class="button button-primary" href="brief.html">Ouvrir</a>.
+          Quand un module est prêt : retirer « is-soon », remplacer le <span> du bouton par
+          <a class="button button-primary" href="brief.html" target="_blank" rel="noopener">Ouvrir</a>
+          (chaque outil s'ouvre dans un nouvel onglet).
         -->
         <ul class="tool-grid tool-grid-4">
           <li>
