@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <title>Boutique — Plugins Photoshop Affiche Minute et Atelier Logo | Mr Doamba</title>
+  <meta name="description" content="Achetez les plugins Photoshop Affiche Minute et Atelier Logo. Paiement Orange Money ou Moov Money, clé de licence envoyée sur WhatsApp.">
+  <link rel="canonical" href="https://romeodoamba980-code.github.io/MrDoamba/outils/boutique.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Mr Doamba">
+  <meta property="og:title" content="Boutique Mr Doamba — Plugins Photoshop">
+  <meta property="og:description" content="Affiche Minute et Atelier Logo : des affiches et des logos pro en quelques clics. Paiement Orange Money / Moov Money.">
+  <meta property="og:url" content="https://romeodoamba980-code.github.io/MrDoamba/outils/boutique.html">
+  <meta property="og:image" content="https://romeodoamba980-code.github.io/MrDoamba/images/og/outils.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="assets/outils.css">
+  <link rel="stylesheet" href="assets/commande.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script src="assets/outils.js" defer></script>
+  <script src="assets/boutique.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../" aria-label="Mr Doamba, accueil">Mr Doamba<span>.</span></a>
+      <nav class="site-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="../#top">Accueil</a>
+        <a href="../#services">Services</a>
+        <a href="../#portfolio">Portfolio</a>
+        <a href="../#apropos">À propos</a>
+        <a href="./" class="active">Outils</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activer le mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="outils-main boutique">
+    <div class="container">
+      <ol class="outils-breadcrumb" aria-label="Fil d'Ariane">
+        <li><a href="../">Accueil</a></li>
+        <li><a href="./">Outils &amp; Services</a></li>
+        <li aria-current="page">Boutique</li>
+      </ol>
+
+      <span class="eyebrow"><span class="status-dot"></span> Plugins Photoshop</span>
+      <h1>Créez plus vite avec <span>mes plugins.</span></h1>
+      <p class="outils-lead">Choisissez votre plugin, payez par Orange Money ou Moov Money, puis envoyez la preuve sur WhatsApp : vous recevez votre clé de licence et votre fichier.</p>
+
+      <!-- ===== 1. Choix du produit ===== -->
+      <section class="bq-produits" aria-labelledby="titre-produits">
+        <h2 id="titre-produits" class="bq-etape"><span>1</span> Choisissez votre plugin</h2>
+        <div class="bq-grille" id="liste-produits" role="radiogroup" aria-label="Produits"></div>
+      </section>
+
+      <!-- ===== 2. Paiement ===== -->
+      <section class="bq-bloc" aria-labelledby="titre-paiement">
+        <h2 id="titre-paiement" class="bq-etape"><span>2</span> Payez <span id="montant-a-payer" class="bq-montant"></span></h2>
+        <div class="bq-moyens">
+          <div class="bq-moyen bq-orange">
+            <span class="bq-moyen-logo" aria-hidden="true">OM</span>
+            <div class="bq-moyen-txt">
+              <strong>Orange Money</strong>
+              <span class="bq-num" id="num-orange"></span>
+            </div>
+            <button type="button" class="button button-secondary bq-copier" data-copier="orange"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier</button>
+          </div>
+          <div class="bq-moyen bq-moov">
+            <span class="bq-moyen-logo" aria-hidden="true">MM</span>
+            <div class="bq-moyen-txt">
+              <strong>Moov Money</strong>
+              <span class="bq-num" id="num-moov"></span>
+            </div>
+            <button type="button" class="button button-secondary bq-copier" data-copier="moov"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier</button>
+          </div>
+        </div>
+        <p class="cmd-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Après le paiement, gardez le SMS de confirmation : il contient l'identifiant de la transaction.</p>
+      </section>
+
+      <!-- ===== 3. Envoi de la preuve ===== -->
+      <section class="bq-bloc" aria-labelledby="titre-preuve">
+        <h2 id="titre-preuve" class="bq-etape"><span>3</span> Envoyez votre preuve et recevez votre clé</h2>
+        <form id="form-achat" class="cmd-card" novalidate>
+          <div class="cmd-grid">
+            <div class="field">
+              <label for="a-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="a-nom" autocomplete="name" placeholder="Ex. Awa Ouédraogo" required>
+              <p class="field-error" id="a-nom-err"></p>
+            </div>
+            <div class="field">
+              <label for="a-tel">Numéro WhatsApp <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="a-tel" autocomplete="tel" inputmode="tel" placeholder="70 12 34 56" required>
+              <p class="field-error" id="a-tel-err"></p>
+            </div>
+            <div class="field">
+              <label for="a-moyen">Payé avec</label>
+              <select id="a-moyen">
+                <option>Orange Money</option>
+                <option>Moov Money</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="a-transaction">Identifiant de la transaction</label>
+              <input type="text" id="a-transaction" placeholder="Facultatif (dans le SMS de confirmation)">
+            </div>
+          </div>
+          <p class="privacy-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Rien n'est envoyé tant que vous n'appuyez pas sur « Envoyer sur WhatsApp ». Joignez ensuite la capture du paiement dans la conversation.</p>
+          <div class="cmd-actions cmd-actions-final">
+            <button type="submit" class="button button-primary"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Envoyer sur WhatsApp</button>
+            <button type="button" class="button button-secondary" id="btn-copier-msg"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier le message</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===== Essai gratuit ===== -->
+      <section class="bq-bloc bq-essai" id="bloc-essai" aria-labelledby="titre-essai">
+        <div>
+          <h2 id="titre-essai">Essayez Affiche Minute gratuitement</h2>
+          <p>La version d'essai fonctionne entièrement, avec un filigrane sur les affiches. Votre clé de licence l'enlève, sans réinstaller.</p>
+        </div>
+        <a class="button button-secondary" id="lien-essai" href="../telechargements/AfficheMinute-essai.zip" download><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger l'essai</a>
+      </section>
+
+      <!-- ===== Questions fréquentes ===== -->
+      <section class="bq-bloc bq-faq" aria-labelledby="titre-faq">
+        <h2 id="titre-faq">Questions fréquentes</h2>
+        <details>
+          <summary>Sur quel logiciel fonctionnent les plugins ?</summary>
+          <p>Adobe Photoshop 2023 (version 24) ou plus récent, sur Windows ou Mac.</p>
+        </details>
+        <details>
+          <summary>Comment je reçois mon plugin ?</summary>
+          <p>Après vérification de votre paiement, je vous envoie sur WhatsApp votre clé de licence et, si besoin, le fichier d'installation avec le guide pas à pas. Délai habituel : quelques heures (48 h maximum).</p>
+        </details>
+        <details>
+          <summary>Comment installer Affiche Minute ?</summary>
+          <p>Double-cliquez sur le fichier .ccx (avec Creative Cloud), ou lancez « INSTALLER-PHOTOSHOP » fourni dans le dossier si vous n'avez pas Creative Cloud. Ouvrez ensuite Photoshop : Modules externes &gt; Affiche Minute.</p>
+        </details>
+        <details>
+          <summary>La licence est valable sur combien d'ordinateurs ?</summary>
+          <p>Une licence = un ordinateur. Pour plusieurs postes, écrivez-moi pour un tarif adapté.</p>
+        </details>
+        <details>
+          <summary>J'ai besoin d'aide pour l'installation</summary>
+          <p>Écrivez-moi sur WhatsApp : je vous guide, à distance si nécessaire.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="../">Mr Doamba<span>.</span></a>
+      <p>© <span id="year"></span> Delarose Doamba. Tous droits réservés.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/delarose__doamba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1C9p7qsbiz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://wa.me/22673061050" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

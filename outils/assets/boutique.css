@@ -1,0 +1,121 @@
+/* =========================================================
+   Boutique Mr Doamba — complète outils.css et commande.css
+   ========================================================= */
+.boutique h1 { margin: 10px 0 12px; }
+.boutique h1 span { color: var(--accent); }
+
+.bq-etape {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 40px 0 16px;
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+}
+.bq-etape > span:first-child {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: .95rem;
+  flex-shrink: 0;
+}
+.bq-montant { color: var(--accent); }
+
+/* Produits */
+.bq-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; }
+.bq-produit {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  padding: 22px;
+  border-radius: 20px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: border-color .2s, transform .2s;
+}
+.bq-produit:hover { transform: translateY(-2px); }
+.bq-produit.is-actif { border-color: var(--accent); }
+.bq-produit:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.bq-produit-haut { display: flex; align-items: center; gap: 10px; }
+.bq-coche {
+  margin-left: auto;
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  color: transparent;
+  font-size: .75rem;
+}
+.is-actif .bq-coche { background: var(--accent); border-color: var(--accent); color: #fff; }
+.bq-produit-nom { font-family: Manrope, sans-serif; font-weight: 800; font-size: 1.35rem; }
+.bq-produit-resume { color: var(--muted); }
+.bq-points { display: grid; gap: 6px; font-size: .95rem; }
+.bq-points i { color: var(--accent); margin-right: 8px; }
+.bq-prix { margin-top: 6px; font-family: Manrope, sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--accent); }
+
+/* Moyens de paiement */
+.bq-moyens { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.bq-moyen {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+}
+.bq-orange { border-color: #ff7900; }
+.bq-moov { border-color: #0066b3; }
+.bq-moyen-logo {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.bq-orange .bq-moyen-logo { background: #ff7900; }
+.bq-moov .bq-moyen-logo { background: #0066b3; }
+.bq-moyen-txt { display: grid; flex: 1; min-width: 0; }
+.bq-num { font-family: Manrope, sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: .5px; }
+.bq-copier { padding: 10px 14px; }
+
+/* Essai + FAQ */
+.bq-essai {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px dashed var(--accent);
+}
+.bq-essai h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.bq-essai p { margin: 0; color: var(--muted); }
+.bq-faq { margin: 40px 0 60px; }
+.bq-faq h2 { font-size: 1.3rem; margin-bottom: 14px; }
+.bq-faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.bq-faq summary { cursor: pointer; font-weight: 700; }
+.bq-faq p { color: var(--muted); margin: 10px 0 0; }
+
+@media (max-width: 560px) {
+  .bq-moyen { flex-wrap: wrap; }
+  .bq-copier { width: 100%; justify-content: center; }
+}
+.bq-essai[hidden] { display: none; }
