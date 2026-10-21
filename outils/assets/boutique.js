@@ -10,7 +10,8 @@
   /* ---------- Réglages ---------- */
   const PAIEMENT = Object.freeze({
     orange: "66540535",   // Orange Money
-    moov: "73061050"      // Moov Money
+    moov: "73061050",     // Moov Money
+    whatsapp: "22666540535" // WhatsApp qui reçoit les preuves de paiement
   });
 
   const PRODUITS = [
@@ -129,7 +130,7 @@
     $("form-achat").addEventListener("submit", (e) => {
       e.preventDefault();
       if (!valider()) return;
-      const { url } = Outils.lienWhatsApp(message());
+      const { url } = Outils.lienWhatsApp(message(), PAIEMENT.whatsapp);
       window.open(url, "_blank", "noopener");
     });
     $("btn-copier-msg").addEventListener("click", async () => {
