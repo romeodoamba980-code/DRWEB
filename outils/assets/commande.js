@@ -10,7 +10,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof TARIFS === "undefined" || typeof Outils === "undefined") return;
 
-  const SERVICES = TARIFS.services;
+  // Les services marqués « bientot: true » dans tarifs.js ne sont pas encore proposés à la commande
+  const SERVICES = Object.fromEntries(Object.entries(TARIFS.services).filter(([, s]) => !s.bientot));
   const $ = (sel, racine = document) => racine.querySelector(sel);
   const $$ = (sel, racine = document) => Array.from(racine.querySelectorAll(sel));
 

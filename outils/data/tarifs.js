@@ -214,8 +214,11 @@ const TARIFS = Object.freeze({
 
     /* ---------------- Mes produits (logiciels et outils à acheter) ----------------
        Prix pas encore fixés : prix: null affiche « Sur devis ».
-       Quand le prix est décidé, remplacer null par [prix, prix] (ex. [15000, 15000]). */
+       Quand le prix est décidé, remplacer null par [prix, prix] (ex. [15000, 15000]).
+       « bientot: true » : produit pas encore prêt, il n'apparaît pas sur la page de commande.
+       Le jour de la sortie, supprimer cette ligne (et activer la carte dans outils/index.html). */
     afficheminute: {
+      bientot: true,
       titre: "Affiche Minute — plugin Photoshop",
       icone: "fa-bolt",
       groupe: "Mes produits",
@@ -234,6 +237,7 @@ const TARIFS = Object.freeze({
     },
 
     atelierlogo: {
+      bientot: true,
       titre: "Atelier de logo",
       icone: "fa-pen-ruler",
       groupe: "Mes produits",
