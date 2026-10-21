@@ -212,6 +212,41 @@ const TARIFS = Object.freeze({
       ]
     },
 
+    /* ---------------- Mes produits (logiciels et outils à acheter) ----------------
+       Prix pas encore fixés : prix: null affiche « Sur devis ».
+       Quand le prix est décidé, remplacer null par [prix, prix] (ex. [15000, 15000]). */
+    afficheminute: {
+      titre: "Affiche Minute — plugin Photoshop",
+      icone: "fa-bolt",
+      groupe: "Mes produits",
+      resume: "Un plugin à installer dans Photoshop pour créer vos affiches plus vite.",
+      delai: "Envoi après paiement",
+      questions: [
+        { id: "formule", type: "choix", label: "Votre achat", requis: true, choix: [
+          { id: "plugin", label: "Plugin Affiche Minute", detail: "[À COMPLÉTER] contenu exact du plugin", prix: null }
+        ] },
+        { id: "photoshop", type: "texte", label: "Votre version de Photoshop", aide: "Ex. Photoshop 2023, 2024…", requis: true },
+        { id: "systeme", type: "choix", label: "Votre ordinateur", requis: true, choix: [
+          { id: "windows", label: "Windows" },
+          { id: "mac", label: "Mac" }
+        ] }
+      ]
+    },
+
+    atelierlogo: {
+      titre: "Atelier de logo",
+      icone: "fa-pen-ruler",
+      groupe: "Mes produits",
+      resume: "Mon atelier pour créer et décliner un logo, en cours d'amélioration.",
+      delai: "[À COMPLÉTER]",
+      questions: [
+        { id: "formule", type: "choix", label: "Votre achat", requis: true, choix: [
+          { id: "atelier", label: "Atelier de logo", detail: "[À COMPLÉTER] ce qui est inclus", prix: null }
+        ] },
+        { id: "message", type: "zone", label: "Une question ou une précision ?" }
+      ]
+    },
+
     /* ---------------- Mes offres ---------------- */
     packs: {
       titre: "Pack de templates",
