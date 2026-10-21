@@ -119,3 +119,27 @@
   .bq-copier { width: 100%; justify-content: center; }
 }
 .bq-essai[hidden] { display: none; }
+
+/* Pack */
+.bq-produit { cursor: default; }
+.bq-produit:hover { transform: none; }
+.bq-offert { background: #16a34a; color: #fff; }
+.bq-barre { color: var(--muted); font-weight: 600; margin-right: 6px; }
+.bq-total {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #fff;
+}
+.bq-total span { font-weight: 700; display: grid; }
+.bq-total small { font-weight: 500; opacity: .75; }
+.bq-total strong { font-family: Manrope, sans-serif; font-size: 1.6rem; color: #fff; }
+#liste-produits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { #liste-produits { grid-template-columns: 1fr; } }
+.bq-gratuit { color: #16a34a; }

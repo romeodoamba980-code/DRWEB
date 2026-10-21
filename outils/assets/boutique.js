@@ -20,7 +20,7 @@
       nom: "Affiche Minute",
       icone: "fa-bolt",
       badge: "Plugin Photoshop",
-      prix: null, // ex. 15000
+      prix: 15000,
       resume: "Une affiche professionnelle prête à publier en une minute, même sans savoir utiliser Photoshop.",
       points: [
         "10 modèles modernes (soirée, culte, immobilier, BTP, produits…)",
@@ -35,7 +35,8 @@
       nom: "Atelier Logo",
       icone: "fa-pen-ruler",
       badge: "Plugin Photoshop",
-      prix: null, // ex. 10000
+      prix: 0,
+      offert: true, // offert avec Affiche Minute
       resume: "Des propositions de logos adaptées à votre activité, à insérer dans Photoshop en calques modifiables.",
       points: [
         "15 domaines d'activité, symboles et palettes adaptés",
@@ -52,30 +53,33 @@
   const prixTexte = (p) => (p ? Outils.formatFCFA(p) : "Prix sur WhatsApp");
   const local = (n) => n.match(/\d{2}/g).join(" ");
 
+  /* Offre actuelle : un seul achat (Affiche Minute) qui comprend Atelier Logo offert */
+  const PACK = { nom: "Pack Affiche Minute + Atelier Logo offert", prix: PRODUITS.reduce((t, p) => t + (p.prix || 0), 0) };
   let choix = PRODUITS[0];
 
   function afficherProduits() {
     const boite = $("liste-produits");
     boite.innerHTML = "";
     PRODUITS.forEach((p) => {
-      const carte = document.createElement("button");
-      carte.type = "button";
-      carte.className = "bq-produit" + (p === choix ? " is-actif" : "");
-      carte.setAttribute("role", "radio");
-      carte.setAttribute("aria-checked", String(p === choix));
+      const carte = document.createElement("div");
+      carte.className = "bq-produit is-actif" + (p === choix ? " is-vedette" : "");
       carte.innerHTML = `
         <span class="bq-produit-haut">
           <span class="tool-icon"><i class="fa-solid ${p.icone}" aria-hidden="true"></i></span>
           <span class="badge">${p.badge}</span>
+          ${p.offert ? '<span class="badge bq-offert">Offert</span>' : ""}
           <span class="bq-coche" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
         </span>
         <span class="bq-produit-nom">${p.nom}</span>
         <span class="bq-produit-resume">${p.resume}</span>
         <span class="bq-points">${p.points.map((x) => `<span><i class="fa-solid fa-check" aria-hidden="true"></i>${x}</span>`).join("")}</span>
-        <span class="bq-prix">${prixTexte(p.prix)}</span>`;
-      carte.addEventListener("click", () => { choix = p; majTout(); });
+        <span class="bq-prix">${p.offert ? '<span class="bq-gratuit">Offert avec Affiche Minute</span>' : prixTexte(p.prix)}</span>`;
       boite.appendChild(carte);
     });
+    const total = document.createElement("div");
+    total.className = "bq-total";
+    total.innerHTML = `<span>Total du pack <small>2 plugins, une seule licence à activer</small></span><strong>${Outils.formatFCFA(PACK.prix)}</strong>`;
+    boite.appendChild(total);
   }
 
   function message() {
@@ -83,9 +87,9 @@
     const tel = Outils.formatTelephone($("a-tel").value);
     const trx = $("a-transaction").value.trim();
     return [
-      `Bonjour Mr Doamba, je viens d'acheter « ${choix.nom} » sur votre site.`,
+      `Bonjour Mr Doamba, je viens d'acheter le « ${PACK.nom} » sur votre site.`,
       ``,
-      `• Produit : ${choix.nom}${choix.prix ? " — " + Outils.formatFCFA(choix.prix) : ""}`,
+      `• Pack : Affiche Minute + Atelier Logo (offert) — ${Outils.formatFCFA(PACK.prix)}`,
       `• Payé avec : ${$("a-moyen").value}`,
       trx ? `• Identifiant de transaction : ${trx}` : null,
       `• Nom : ${nom}`,
@@ -108,8 +112,8 @@
 
   function majTout() {
     afficherProduits();
-    $("montant-a-payer").textContent = choix.prix ? Outils.formatFCFA(choix.prix) : "";
-    $("bloc-essai").hidden = !choix.essai;
+    $("montant-a-payer").textContent = Outils.formatFCFA(PACK.prix);
+    $("bloc-essai").hidden = false;
     try { history.replaceState(null, "", "?produit=" + choix.id); } catch (e) { /* sans importance */ }
   }
 
